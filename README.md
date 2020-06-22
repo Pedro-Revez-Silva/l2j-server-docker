@@ -10,14 +10,6 @@ After the installation enable the following checkbox in docker desktop > setting
 
 `[x] Expose daemon on tcp://localhost:2375 without TLS`
 
-### Mac
-
-[Install Docker Desktop for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
-
-After the installation enable the following checkbox in docker desktop > settings
-
-`[x] Expose daemon on tcp://localhost:2375 without TLS`
-
 ### Linux
 
 [Install docker for Centos](https://docs.docker.com/engine/install/centos/)
@@ -28,7 +20,19 @@ Then start the linux service
 
 `systemctl status docker.service`
 
-## Use docker-compose.yml to start
+### Mac
+
+[Install Docker Desktop for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
+
+macOS must be version 10.13 or newer, i.e. High Sierra (10.13), Mojave (10.14) or Catalina (10.15).
+
+### Raspberry
+
+[Installing docker and docker-compose in Raspberry](https://dev.to/rohansawant/installing-docker-and-docker-compose-on-the-raspberry-pi-in-5-simple-steps-3mgl)
+
+Working in Raspberry Pi 4B.
+
+## Use docker-compose.yml
 
 After the docker installation run the following command in any Linux / Windows terminal into the l2j-server-docker folder to get your local server running
 
@@ -73,6 +77,7 @@ Restart the cluster
 
 `docker-compose -f "docker-compose.yml" up -d --build`
 
+
 ## Customize your own Docker images
 
 If you want recreate the images yourself checkout the following Dockerfiles repositories
@@ -82,6 +87,7 @@ If you want recreate the images yourself checkout the following Dockerfiles repo
 [l2jserver/l2j-server-docker](https://bitbucket.org/l2jserver/l2j-server-docker)
 
 Just rename the images, customize and use them with your own docker-compose file.
+
 
 ## Troubleshooting
 
@@ -98,6 +104,7 @@ But most cases it should be enough
 `docker image prune -a`
 
 `docker system prune -a`
+
 
 # License
 
