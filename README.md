@@ -2,9 +2,17 @@
 
 ## Requirements 
 
-### Windows 10
+### Windows
 
-[Install Docker for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
+[Install Docker Desktop for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
+
+After the installation enable the following checkbox in docker desktop > settings
+
+`[x] Expose daemon on tcp://localhost:2375 without TLS`
+
+### Mac
+
+[Install Docker Desktop for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
 
 After the installation enable the following checkbox in docker desktop > settings
 
@@ -28,7 +36,7 @@ After the docker installation run the following command in any Linux / Windows t
 
 Wait until the server is fully deployed and connected to 127.0.0.1 and you are ready to go.
 
-### Logging the server
+### Logging
 
 If you want to check the logs while the server is starting/running use a terminal with the command
 
@@ -40,7 +48,7 @@ Attach a shell to navigate around the server container files
 
 `docker exec -it l2j-server-docker /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"`
 
-### Configurable environments
+### Configurable environment variables
 
 The default values can be modified in the docker-compose.yml file
 
