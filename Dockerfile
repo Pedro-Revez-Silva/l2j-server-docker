@@ -1,3 +1,8 @@
+# Copyright 2004-2020 L2J Server
+# L2J Server is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+# L2J Server is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/. 
+
 FROM alpine:latest
 
 COPY entry-point.sh /entry-point.sh
@@ -7,15 +12,12 @@ ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 RUN apk update \ 
     && apk --no-cache add openjdk11-jdk maven mariadb-client openjdk11-jre unzip git \
     && mkdir -p /opt/l2j/target \
-    && mkdir -p /opt/l2j/server/cli \
-    && mkdir -p /opt/l2j/server/login \
-    && mkdir -p /opt/l2j/server/game \
-    && java --version \
     && cd /opt/l2j/target/ \
-    && git clone https://git@bitbucket.org/l2jserver/l2j-server-cli.git cli \
-    && git clone https://git@bitbucket.org/l2jserver/l2j-server-login.git login \
-    && git clone https://git@bitbucket.org/l2jserver/l2j-server-game.git game \
-    && git clone https://git@bitbucket.org/l2jserver/l2j-server-datapack.git datapack \
+    && git clone --branch master --single-branch https://git@bitbucket.org/l2jserver/l2j-server-cli.git cli \
+    && git clone --branch master --single-branch https://git@bitbucket.org/l2jserver/l2j-server-login.git login \
+    && git clone --branch develop --single-branch https://git@bitbucket.org/l2jserver/l2j-server-game.git game \
+    && git clone --branch develop --single-branch https://git@bitbucket.org/l2jserver/l2j-server-datapack.git datapack \
+    && git clone --branch master --single-branch https://git@bitbucket.org/l2jgeo/l2j_geodata.git geodata \
     && cd /opt/l2j/target/cli \
     && mvn install \
     && cd /opt/l2j/target/login \
@@ -24,12 +26,16 @@ RUN apk update \
     && mvn install \
     && cd /opt/l2j/target/datapack \
     && mvn install \
+    && mkdir /opt/l2j/server \
     && unzip /opt/l2j/target/cli/target/*.zip -d /opt/l2j/server/cli \
     && unzip /opt/l2j/target/login/target/*.zip -d /opt/l2j/server/login \
     && unzip /opt/l2j/target/game/target/*.zip -d /opt/l2j/server/game \
     && unzip /opt/l2j/target/datapack/target/*.zip -d /opt/l2j/server/game \
+    && mv -v -f /opt/l2j/target/geodata/geodata /opt/l2j/server/geodata \
     && rm -rf /opt/l2j/target/ \
-    && apk del maven git \
+    && apk del maven git unzip \
+    && chmod +x /opt/l2j/server/game/*.sh \
+    && chmod +x /opt/l2j/server/login/*.sh \
     && chmod +x /entry-point.sh
 
 WORKDIR /opt/l2j/server
