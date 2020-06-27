@@ -8,7 +8,7 @@ You can modify the clean distributed files, like the script java files or any XM
 
 ## Usage
 
-Build the docker-compose. Join the /custom/ folder and execute:
+Build the docker-compose. Add your custom files to the /custom/ folder and execute:
 
 `docker cp . l2j-server-docker:/.`
 

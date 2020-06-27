@@ -1,3 +1,8 @@
+# Copyright 2004-2020 L2J Server
+# L2J Server is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+# L2J Server is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/. 
+
 version: '3.3'
 
 services:
@@ -21,15 +26,12 @@ services:
       RATE_XP: "1"
       RATE_SP: "1"
       RATE_ADENA: "1"
-      ADMIN_RIGHTS: "False"
-      FORCE_GEODATA: "True"
+      ADMIN_RIGHTS: "True"
+      FORCE_GEODATA: "False"
       COORD_SYNC: "-1"
       HELLBOUND_ACCESS: "False"
       WEIGHT_LIMIT: "1"
-      RUN_SPEED_BOOST: "0"
-      TVT_ENABLED: "True"
+      RUN_SPEED_BOOST: "1"
+      TVT_ENABLED: "False"
     depends_on:
       - mariadb
-    ports:
-      - "7777:7777"
-      - "2106:2106"
