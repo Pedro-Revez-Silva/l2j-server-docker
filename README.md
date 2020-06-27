@@ -62,6 +62,11 @@ The default values can be modified in the docker-compose.yml file
 - RATE_XP : Rates for XP Gain (default: "1")
 - RATE_SP : Rates for SP Gain (default: "1")
 - ADMIN_RIGHTS : Everyone has Admin rights (default: "False")
+- FORCE_GEODATA: Forces geodata (default: "False")
+- COORD_SYNC: Coordinates sync configuration (default: "-1")
+- HELLBOUND_ACCESS: Hellbound without Quest (default: "False")
+- WEIGHT_LIMIT: Increases the weight limit ratio (default: "1")
+- TVT_ENABLED: Enables the Team Vs Team PvP Event (default: "False")
 
 ### Managing the cluster with docker-compose.yml
 
@@ -71,11 +76,11 @@ Start the cluster (the first time)
 
 Stop the cluster
 
+`docker-compose -f "docker-compose.yml" stop`
+
+Removes the cluster containers
+
 `docker-compose -f "docker-compose.yml" down`
-
-Restart the cluster
-
-`docker-compose -f "docker-compose.yml" up -d --build`
 
 
 ## Customize your own Docker images
@@ -88,20 +93,19 @@ If you want recreate the images yourself checkout the following Dockerfiles repo
 
 Just rename the images, customize and use them with your own docker-compose file.
 
+## Customize your own container
+
+If you want to add custom code to the container, first `stop` it and run this command from the console:
+
+`docker cp ./custom/. l2j-server-docker:/` 
+
+Starting again the l2j-server container the changes will take effect. [Read this for more information](https://bitbucket.org/l2jserver/l2j-server-docker/src/master/custom/README.md).
 
 ## Troubleshooting
 
-You should use `down` to stop the cluster but if you are experiencing problems with the main deploy, also you can create a .bat file to remove all the current containers
+Use `down` to stop the cluster but if you are experiencing problems execute the following commands to restart all the volumes and containers
 
-`@echo off`
-
-`FOR /f "tokens=*" %%i IN ('docker ps -aq') DO docker rm %%i`
-
-`FOR /f "tokens=*" %%i IN ('docker images --format "{{.ID}}"') DO docker rmi %%i`
-
-But most cases it should be enough
-
-`docker image prune -a`
+`docker volume prune`
 
 `docker system prune -a`
 

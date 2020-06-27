@@ -16,7 +16,7 @@ Starting again the l2j-server container the changes will take effect.
 
 If a file exists it will be replaced, at the moment isn't doing any backup so take caution with this. You can copy the original file from the [data repository](https://bitbucket.org/l2jserver/l2j-server-datapack/src/develop/src/main/resources/data) to get again the working file.
 
-It can be used also for testing the script files but be sure to add them to the script.cfg following the same package structure defined in [datapack script folder](https://bitbucket.org/l2jserver/l2j-server-datapack/src/develop/src/main/java/com/l2jserver/datapack/)
+It can be used also for testing the script files but be sure to add them to the scripts.cfg following the same package structure defined in [datapack script folder](https://bitbucket.org/l2jserver/l2j-server-datapack/src/develop/src/main/java/com/l2jserver/datapack/)
 
 # License
 
