@@ -4,7 +4,7 @@ This folder is an utility to copy resources after the l2j-server container is *c
 
 The folder matchs the root container directory so the entry-point.sh can be also modified. It was intended for testing NPCs and custom scripts and improve the entry-point.sh without rebuild the image. 
 
-You can modify the clean distributed files, like the script java files or any XML (overriding the  XML file with the modified one). **The files must to be in the same hierachy folder to be overrided.**
+You can modify the clean distributed files, like the script java files or any XML (overriding the  XML file with the modified one). **The files must to be in the same hierachy folder.**
 
 ## Usage
 
