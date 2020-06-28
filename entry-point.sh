@@ -47,8 +47,10 @@ sed -i "s#RunSpeedBoost = 0#RunSpeedBoost = $RUN_SPEED_BOOST#g" /opt/l2j/server/
 sed -i "s#Enabled = False#Enabled = $TVT_ENABLED#g" /opt/l2j/server/game/config/tvt.properties
 
 if [ "$FORCE_GEODATA" = "True" ]; then
-    sed -i "s#ForceGeoData = True#ForceGeoData = $FORCE_GEODATA#g" /opt/l2j/server/game/config/geodata.properties
+    apk add git && git clone --branch master --single-branch https://git@bitbucket.org/l2jgeo/l2j_geodata.git /opt/l2j/server/geodata && apk del git
+    mv -v /opt/l2j/server/geodata/geodata/* /opt/l2j/server/geodata/ && rm -rf /opt/l2j/server/geodata/geodata/
     sed -i 's#GeoDataPath = ./data/geodata#GeoDataPath = /opt/l2j/server/geodata#g' /opt/l2j/server/game/config/geodata.properties
+    sed -i "s#ForceGeoData = True#ForceGeoData = $FORCE_GEODATA#g" /opt/l2j/server/game/config/geodata.properties
 fi
 
 if [ "$COORD_SYNC" != "-1" ]; then
@@ -82,7 +84,8 @@ sh startLoginServer.sh
 # If this option is set to True every newly created character will have access level 127. This means that every character created will have Administrator Privileges.
 # Default: False
 sed -i "s#EverybodyHasAdminRights = False#EverybodyHasAdminRights = $ADMIN_RIGHTS#g" /opt/l2j/server/game/config/general.properties
-sed -i "s#HellboundWithoutQuest = False#HellboundWithoutQuest = $HELLBOUND_ACCESS#g" /opt/l2j/server/game/config/general.properties# Experimental: 
+sed -i "s#HellboundWithoutQuest = False#HellboundWithoutQuest = $HELLBOUND_ACCESS#g" /opt/l2j/server/game/config/general.properties
+ 
 # Experimental: 
 #sed -i "s#GameServerHost = 127.0.0.1#GameServerHost = *#g" /opt/l2j/server/game/config/general.properties
 
@@ -92,7 +95,7 @@ sed -i "s#DropAmountMultiplierByItemId = 57,1#DropAmountMultiplierByItemId = 57,
 
 sed -i "s#jdbc:mariadb://localhost/l2jgs#jdbc:mariadb://mariadb:3306/l2jgs#g" /opt/l2j/server/game/config/database.properties
 
-sed -i "s#gameserver address=\"127.0.0.1\"#gameserver address=\"${SERVER_IP}\"#g" /opt/l2j/server/game/config/default-ipconfig.xml
+sed -i "s#gameserver address=\"127.0.0.1\"#gameserver address=\"$SERVER_IP\"#g" /opt/l2j/server/game/config/default-ipconfig.xml
 if [ "$SERVER_IP" != "127.0.0.1" ]; then
 	mv /opt/l2j/server/game/config/default-ipconfig.xml /opt/l2j/server/game/config/ipconfig.xml	
 fi
@@ -107,4 +110,4 @@ sh startGameServer.sh
 echo "Waiting the server log"
 sleep 5s
 
-tail -f /opt/l2j/server/game/log/stdout.log
+tail -f /opt/l2j/server/game/logs/server.log
