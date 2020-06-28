@@ -9,6 +9,8 @@ services:
   mariadb:
     container_name: l2j-server-mariadb
     image: yobasystems/alpine-mariadb:latest
+    networks:
+      - default
     volumes:
       - /var/lib/mysql
     restart: always
@@ -19,7 +21,9 @@ services:
   l2jserver:
     container_name: l2j-server-docker
     image: l2jserver/l2j-server-docker:latest
-    environment:
+    networks:
+      - default
+    environment:      
       SERVER_IP: "127.0.0.1"
       JAVA_XMS: "512m"
       JAVA_XMX: "2g" 
@@ -35,3 +39,14 @@ services:
       TVT_ENABLED: "False"
     depends_on:
       - mariadb
+    ports:
+      - "7777:7777"
+      - "2106:2106"
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 10.0.0.0/8
