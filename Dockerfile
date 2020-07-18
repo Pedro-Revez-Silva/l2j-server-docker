@@ -11,7 +11,7 @@ ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 
 RUN apk update \ 
     && apk --no-cache add openjdk11-jdk maven mariadb-client openjdk11-jre unzip git \
-    && mkdir -p /opt/l2j/target && cd /opt/l2j/target/ \
+    && mkdir -p /opt/l2j/server && mkdir -p /opt/l2j/target && cd /opt/l2j/target/ \
     && git clone --branch master --single-branch https://git@bitbucket.org/l2jserver/l2j-server-cli.git cli \
     && git clone --branch master --single-branch https://git@bitbucket.org/l2jserver/l2j-server-login.git login \
     && git clone --branch develop --single-branch https://git@bitbucket.org/l2jserver/l2j-server-game.git game \
@@ -20,12 +20,11 @@ RUN apk update \
     && cd /opt/l2j/target/login && mvn install \
     && cd /opt/l2j/target/game && mvn install \
     && cd /opt/l2j/target/datapack && mvn install \
-    && mkdir /opt/l2j/server \
     && unzip /opt/l2j/target/cli/target/*.zip -d /opt/l2j/server/cli \
     && unzip /opt/l2j/target/login/target/*.zip -d /opt/l2j/server/login \
     && unzip /opt/l2j/target/game/target/*.zip -d /opt/l2j/server/game \
     && unzip /opt/l2j/target/datapack/target/*.zip -d /opt/l2j/server/game \
-    && rm -rf /opt/l2j/target/ && apk del maven git unzip \
+    && rm -rf /opt/l2j/target/ && apk del maven git \
     && chmod +x /opt/l2j/server/cli/*.sh /opt/l2j/server/game/*.sh /opt/l2j/server/login/*.sh /entry-point.sh
 
 WORKDIR /opt/l2j/server

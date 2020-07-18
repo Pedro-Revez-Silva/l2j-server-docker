@@ -33,16 +33,17 @@ services:
       WEIGHT_LIMIT: "1"
       RUN_SPEED_BOOST: "1"
       TVT_ENABLED: "False"
+      SAVE_GM_SPAWN_ON_CUSTOM: "True"
+      CUSTOM_SPAWNLIST_TABLE: "True"
+      CUSTOM_NPC_DATA: "True"
+      CUSTOM_TELEPORT_TABLE: "True"
+      CUSTOM_NPC_BUFFER_TABLES: "True"
+      CUSTOM_SKILLS_LOAD: "True"
+      CUSTOM_ITEMS_LOAD: "True"
+      CUSTOM_MULTISELL_LOAD: "True"
+      CUSTOM_BUYLIST_LOAD: "True"
     depends_on:
       - mariadb
     ports:
       - "7777:7777"
       - "2106:2106"
-
-networks:
-  default:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-      - subnet: 10.0.0.0/8

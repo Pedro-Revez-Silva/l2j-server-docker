@@ -67,6 +67,15 @@ The default values can be modified in the docker-compose.yml file
 - HELLBOUND_ACCESS: Hellbound without Quest (default: "False")
 - WEIGHT_LIMIT: Increases the weight limit ratio (default: "1")
 - TVT_ENABLED: Enables the Team Vs Team PvP Event (default: "False")
+- SAVE_GM_SPAWN_ON_CUSTOM: Save any admin spawn (default: "False")
+- CUSTOM_SPAWNLIST_TABLE: Enables the custom spawnlist folder (default: "False")
+- CUSTOM_NPC_DATA:  Enables the custom NPC data (default: "False")
+- CUSTOM_TELEPORT_TABLE: Enables the custom teleport table (default: "False")
+- CUSTOM_NPC_BUFFER_TABLES: Enables the NPC buffer scheme tables (default: "False")
+- CUSTOM_SKILLS_LOAD: Enables the custom skills data (default: "False")
+- CUSTOM_ITEMS_LOAD:  Enables the custom items data (default: "False")
+- CUSTOM_MULTISELL_LOAD: Enables the multisell data (default: "False")
+- CUSTOM_BUYLIST_LOAD: Enables the buylist data (default: "False")
 
 ### Managing the cluster with docker-compose.yml
 
