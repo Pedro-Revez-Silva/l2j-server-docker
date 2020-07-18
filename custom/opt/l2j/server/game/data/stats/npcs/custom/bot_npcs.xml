@@ -1,440 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../xsd/npcs.xsd">
-	<npc id="113169" level="55" displayId="13169" usingServerSideName="true" title="L2J NPC Bot" usingServerSideTitle="true" type="L2Npc" name="Human Male Mercenary">
-		<!-- Confirmed CT2.5 -->
-		<race>HUMAN</race>
-		<sex>MALE</sex>
-		<stats str="40" int="21" dex="30" wit="20" con="43" men="25">
-			<vitals hp="1673.05473" hpRegen="6.5" mp="889.8" mpRegen="2.4" />
-			<attack physical="388.11142" magical="265.02979" random="10" critical="4" accuracy="4.75" attackSpeed="253" type="FIST" range="40" distance="80" width="120" />
-			<defence physical="223.6362" magical="163.64727" />
-			<attribute>
-				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
-			</attribute>
-			<speed>
-				<walk ground="50" />
-				<run ground="180" />
-			</speed>
-		</stats>
-		<status undying="false" />
-		<skillList>
-			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
-			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
-			<skill id="4410" level="11" /> <!--Average P. Atk. -->
-			<skill id="4411" level="11" /> <!--Average M. Atk. -->
-			<skill id="4412" level="11" /> <!--Average P. Def. -->
-			<skill id="4413" level="11" /> <!--Average M. Def. -->
-			<skill id="4414" level="2" /> <!--Standard Type -->
-			<skill id="4415" level="1" /> <!--Bare Hands -->
-			<skill id="4416" level="14" /> <!--Humans -->
-		</skillList>
-		<shots soul="2" spirit="2" />
-		<exCrtEffect>false</exCrtEffect>
-		<ai type="BALANCED" />
-		<collision>
-			<radius normal="8" />
-			<height normal="24" />
-		</collision>
-	</npc>
-	<npc id="113170" level="55" displayId="13170" usingServerSideName="true" title="L2J NPC Bot" usingServerSideTitle="true" type="L2Npc" name="Male Elf Mercenary">
-		<!-- Confirmed CT2.5 -->
-		<race>ELF</race>
-		<sex>MALE</sex>
-		<stats str="40" int="21" dex="30" wit="20" con="43" men="25">
-			<vitals hp="1673.05473" hpRegen="6.5" mp="889.8" mpRegen="2.4" />
-			<attack physical="388.11142" magical="265.02979" random="10" critical="4" accuracy="4.75" attackSpeed="253" type="FIST" range="40" distance="80" width="120" />
-			<defence physical="223.6362" magical="163.64727" />
-			<attribute>
-				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
-			</attribute>
-			<speed>
-				<walk ground="50" />
-				<run ground="180" />
-			</speed>
-		</stats>
-		<status undying="false" />
-		<skillList>
-			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
-			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
-			<skill id="4410" level="11" /> <!--Average P. Atk. -->
-			<skill id="4411" level="11" /> <!--Average M. Atk. -->
-			<skill id="4412" level="11" /> <!--Average P. Def. -->
-			<skill id="4413" level="11" /> <!--Average M. Def. -->
-			<skill id="4414" level="2" /> <!--Standard Type -->
-			<skill id="4415" level="1" /> <!--Bare Hands -->
-			<skill id="4416" level="15" /> <!--Elves -->
-		</skillList>
-		<shots soul="2" spirit="2" />
-		<exCrtEffect>false</exCrtEffect>
-		<ai type="BALANCED" />
-		<collision>
-			<radius normal="8" />
-			<height normal="23.5" />
-		</collision>
-	</npc>
-	<npc id="113171" level="55" displayId="13171" usingServerSideName="true" title="L2J NPC Bot" usingServerSideTitle="true" type="L2Npc" name="Dark Elf Female Mercenary">
-		<!-- Confirmed CT2.5 -->
-		<race>DARK_ELF</race>
-		<sex>FEMALE</sex>
-		<stats str="40" int="21" dex="30" wit="20" con="43" men="25">
-			<vitals hp="1673.05473" hpRegen="6.5" mp="889.8" mpRegen="2.4" />
-			<attack physical="388.11142" magical="265.02979" random="10" critical="4" accuracy="4.75" attackSpeed="253" type="FIST" range="40" distance="80" width="120" />
-			<defence physical="223.6362" magical="163.64727" />
-			<attribute>
-				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
-			</attribute>
-			<speed>
-				<walk ground="50" />
-				<run ground="180" />
-			</speed>
-		</stats>
-		<status undying="false" />
-		<skillList>
-			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
-			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
-			<skill id="4410" level="11" /> <!--Average P. Atk. -->
-			<skill id="4411" level="11" /> <!--Average M. Atk. -->
-			<skill id="4412" level="11" /> <!--Average P. Def. -->
-			<skill id="4413" level="11" /> <!--Average M. Def. -->
-			<skill id="4414" level="2" /> <!--Standard Type -->
-			<skill id="4415" level="1" /> <!--Bare Hands -->
-			<skill id="4416" level="16" /> <!--Dark Elves -->
-		</skillList>
-		<shots soul="2" spirit="2" />
-		<exCrtEffect>false</exCrtEffect>
-		<ai type="BALANCED" />
-		<collision>
-			<radius normal="7" />
-			<height normal="25" />
-		</collision>
-	</npc>
-	<npc id="113172" level="55" displayId="13172" usingServerSideName="true" title="L2J NPC Bot" usingServerSideTitle="true" type="L2Npc" name="Orc Male Mercenary">
-		<!-- Confirmed CT2.5 -->
-		<race>ORC</race>
-		<sex>MALE</sex>
-		<stats str="40" int="21" dex="30" wit="20" con="43" men="25">
-			<vitals hp="1673.05473" hpRegen="6.5" mp="889.8" mpRegen="2.4" />
-			<attack physical="388.11142" magical="265.02979" random="10" critical="4" accuracy="4.75" attackSpeed="253" type="FIST" range="40" distance="80" width="120" />
-			<defence physical="223.6362" magical="163.64727" />
-			<attribute>
-				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
-			</attribute>
-			<speed>
-				<walk ground="50" />
-				<run ground="180" />
-			</speed>
-		</stats>
-		<status undying="false" />
-		<skillList>
-			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
-			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
-			<skill id="4410" level="11" /> <!--Average P. Atk. -->
-			<skill id="4411" level="11" /> <!--Average M. Atk. -->
-			<skill id="4412" level="11" /> <!--Average P. Def. -->
-			<skill id="4413" level="11" /> <!--Average M. Def. -->
-			<skill id="4414" level="2" /> <!--Standard Type -->
-			<skill id="4415" level="1" /> <!--Bare Hands -->
-			<skill id="4416" level="17" /> <!--Orcs -->
-		</skillList>
-		<shots soul="2" spirit="2" />
-		<exCrtEffect>false</exCrtEffect>
-		<ai type="BALANCED" />
-		<collision>
-			<radius normal="8" />
-			<height normal="27" />
-		</collision>
-	</npc>
-	<npc id="113173" level="55" displayId="13173" usingServerSideName="true" title="L2J NPC Bot" usingServerSideTitle="true" type="L2Npc" name="Dwarf Male Mercenary">
-		<!-- Confirmed CT2.5 -->
-		<race>DWARF</race>
-		<sex>MALE</sex>
-		<stats str="40" int="21" dex="30" wit="20" con="43" men="25">
-			<vitals hp="1673.05473" hpRegen="6.5" mp="889.8" mpRegen="2.4" />
-			<attack physical="388.11142" magical="265.02979" random="10" critical="4" accuracy="4.75" attackSpeed="253" type="FIST" range="40" distance="80" width="120" />
-			<defence physical="223.6362" magical="163.64727" />
-			<attribute>
-				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
-			</attribute>
-			<speed>
-				<walk ground="50" />
-				<run ground="180" />
-			</speed>
-		</stats>
-		<status undying="false" />
-		<skillList>
-			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
-			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
-			<skill id="4410" level="11" /> <!--Average P. Atk. -->
-			<skill id="4411" level="11" /> <!--Average M. Atk. -->
-			<skill id="4412" level="11" /> <!--Average P. Def. -->
-			<skill id="4413" level="11" /> <!--Average M. Def. -->
-			<skill id="4414" level="2" /> <!--Standard Type -->
-			<skill id="4415" level="1" /> <!--Bare Hands -->
-			<skill id="4416" level="18" /> <!--Dwarves -->
-		</skillList>
-		<shots soul="2" spirit="2" />
-		<exCrtEffect>false</exCrtEffect>
-		<ai type="BALANCED" />
-		<collision>
-			<radius normal="8" />
-			<height normal="19" />
-		</collision>
-	</npc>
-	<npc id="113174" level="55" displayId="13174" usingServerSideName="true" title="L2J NPC Bot" usingServerSideTitle="true" type="L2Npc" name="Kamael Male Mercenary">
-		<!-- Confirmed CT2.5 -->
-		<race>KAMAEL</race>
-		<sex>MALE</sex>
-		<stats str="40" int="21" dex="30" wit="20" con="43" men="25">
-			<vitals hp="1673.05473" hpRegen="6.5" mp="889.8" mpRegen="2.4" />
-			<attack physical="388.11142" magical="265.02979" random="10" critical="4" accuracy="4.75" attackSpeed="253" type="FIST" range="40" distance="80" width="120" />
-			<defence physical="223.6362" magical="163.64727" />
-			<attribute>
-				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
-			</attribute>
-			<speed>
-				<walk ground="39" />
-				<run ground="180" />
-			</speed>
-			<hitTime>490</hitTime>
-		</stats>
-		<status undying="false" />
-		<skillList>
-			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
-			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
-			<skill id="4410" level="11" /> <!--Average P. Atk. -->
-			<skill id="4411" level="11" /> <!--Average M. Atk. -->
-			<skill id="4412" level="11" /> <!--Average P. Def. -->
-			<skill id="4413" level="11" /> <!--Average M. Def. -->
-			<skill id="4414" level="2" /> <!--Standard Type -->
-			<skill id="4415" level="1" /> <!--Bare Hands -->
-			<skill id="4416" level="25" /> <!--Kamael -->
-		</skillList>
-		<shots soul="2" spirit="2" />
-		<exCrtEffect>false</exCrtEffect>
-		<ai type="BALANCED" />
-		<collision>
-			<radius normal="13" />
-			<height normal="25" />
-		</collision>
-	</npc>
-	<npc id="113175" level="55" displayId="13175" usingServerSideName="true" title="L2J NPC Bot" usingServerSideTitle="true" type="L2Npc" name="Knight Level Mercenary">
-		<!-- Confirmed CT2.5 -->
-		<race>HUMAN</race>
-		<sex>MALE</sex>
-		<stats str="40" int="21" dex="30" wit="20" con="43" men="25">
-			<vitals hp="1673.05473" hpRegen="6.5" mp="889.8" mpRegen="2.4" />
-			<attack physical="388.11142" magical="265.02979" random="10" critical="4" accuracy="4.75" attackSpeed="253" type="FIST" range="40" distance="80" width="120" />
-			<defence physical="223.6362" magical="163.64727" />
-			<attribute>
-				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
-			</attribute>
-			<speed>
-				<walk ground="50" />
-				<run ground="180" />
-			</speed>
-		</stats>
-		<status undying="false" />
-		<skillList>
-			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
-			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
-			<skill id="4410" level="11" /> <!--Average P. Atk. -->
-			<skill id="4411" level="11" /> <!--Average M. Atk. -->
-			<skill id="4412" level="11" /> <!--Average P. Def. -->
-			<skill id="4413" level="11" /> <!--Average M. Def. -->
-			<skill id="4414" level="2" /> <!--Standard Type -->
-			<skill id="4415" level="1" /> <!--Bare Hands -->
-			<skill id="4416" level="14" /> <!--Humans -->
-		</skillList>
-		<shots soul="2" spirit="2" />
-		<exCrtEffect>false</exCrtEffect>
-		<ai type="BALANCED" />
-		<collision>
-			<radius normal="7" />
-			<height normal="24" />
-		</collision>
-	</npc>
-	<npc id="113176" level="55" displayId="13176" usingServerSideName="true" title="L2J NPC Bot" usingServerSideTitle="true" type="L2Npc" name="Archer Level Mercenary">
-		<!-- Confirmed CT2.5 -->
-		<race>ELF</race>
-		<sex>MALE</sex>
-		<equipment rhand="15302" /> <!-- rhand: Transparent Bow (for NPC) -->
-		<stats str="40" int="21" dex="30" wit="20" con="43" men="25">
-			<vitals hp="1673.05473" hpRegen="6.5" mp="889.8" mpRegen="2.4" />
-			<attack physical="388.11142" magical="265.02979" random="10" critical="8" accuracy="0" attackSpeed="253" reuseDelay="1500" type="BOW" range="1100" distance="10" width="0" />
-			<defence physical="223.6362" magical="163.64727" />
-			<attribute>
-				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
-			</attribute>
-			<speed>
-				<walk ground="30" />
-				<run ground="180" />
-			</speed>
-		</stats>
-		<status undying="false" />
-		<skillList>
-			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
-			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
-			<skill id="4410" level="11" /> <!--Average P. Atk. -->
-			<skill id="4411" level="11" /> <!--Average M. Atk. -->
-			<skill id="4412" level="11" /> <!--Average P. Def. -->
-			<skill id="4413" level="11" /> <!--Average M. Def. -->
-			<skill id="4414" level="2" /> <!--Standard Type -->
-			<skill id="4415" level="9" /> <!--Bows -->
-			<skill id="4416" level="15" /> <!--Elves -->
-		</skillList>
-		<shots soul="2" spirit="2" />
-		<exCrtEffect>false</exCrtEffect>
-		<ai type="BALANCED" />
-		<collision>
-			<radius normal="10" />
-			<height normal="23.5" />
-		</collision>
-	</npc>
-	<npc id="113177" level="55" displayId="13177" usingServerSideName="true" title="L2J NPC Bot" usingServerSideTitle="true" type="L2Npc" name="Wizard Level Mercenary">
-		<!-- Confirmed CT2.5 -->
-		<race>HUMAN</race>
-		<sex>FEMALE</sex>
-		<stats str="40" int="21" dex="30" wit="20" con="43" men="25">
-			<vitals hp="1673.05473" hpRegen="6.5" mp="889.8" mpRegen="2.4" />
-			<attack physical="388.11142" magical="265.02979" random="10" critical="4" accuracy="4.75" attackSpeed="253" type="FIST" range="40" distance="80" width="120" />
-			<defence physical="223.6362" magical="163.64727" />
-			<attribute>
-				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
-			</attribute>
-			<speed>
-				<walk ground="28" />
-				<run ground="180" />
-			</speed>
-		</stats>
-		<status undying="false" />
-		<skillList>
-			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
-			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
-			<skill id="4410" level="11" /> <!--Average P. Atk. -->
-			<skill id="4411" level="11" /> <!--Average M. Atk. -->
-			<skill id="4412" level="11" /> <!--Average P. Def. -->
-			<skill id="4413" level="11" /> <!--Average M. Def. -->
-			<skill id="4414" level="2" /> <!--Standard Type -->
-			<skill id="4415" level="1" /> <!--Bare Hands -->
-			<skill id="4416" level="14" /> <!--Humans -->
-		</skillList>
-		<shots soul="2" spirit="2" />
-		<exCrtEffect>false</exCrtEffect>
-		<ai type="BALANCED" />
-		<collision>
-			<radius normal="9" />
-			<height normal="23.5" />
-		</collision>
-	</npc>
-	<npc id="113178" level="55" displayId="13179" usingServerSideName="true" title="L2J NPC Bot" usingServerSideTitle="true" type="L2Npc" name="Trooper Level Mercenary">
-		<!-- Confirmed CT2.5 -->
-		<race>KAMAEL</race>
-		<sex>FEMALE</sex>
-		<stats str="40" int="21" dex="30" wit="20" con="43" men="25">
-			<vitals hp="1673.05473" hpRegen="6.5" mp="889.8" mpRegen="2.4" />
-			<attack physical="388.11142" magical="265.02979" random="10" critical="4" accuracy="4.75" attackSpeed="253" type="FIST" range="40" distance="80" width="120" />
-			<defence physical="223.6362" magical="163.64727" />
-			<attribute>
-				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
-			</attribute>
-			<speed>
-				<walk ground="48" />
-				<run ground="180" />
-			</speed>
-			<hitTime>430</hitTime>
-		</stats>
-		<status undying="false" />
-		<skillList>
-			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
-			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
-			<skill id="4410" level="11" /> <!--Average P. Atk. -->
-			<skill id="4411" level="11" /> <!--Average M. Atk. -->
-			<skill id="4412" level="11" /> <!--Average P. Def. -->
-			<skill id="4413" level="11" /> <!--Average M. Def. -->
-			<skill id="4414" level="2" /> <!--Standard Type -->
-			<skill id="4415" level="1" /> <!--Bare Hands -->
-			<skill id="4416" level="25" /> <!--Kamael -->
-		</skillList>
-		<shots soul="2" spirit="2" />
-		<exCrtEffect>false</exCrtEffect>
-		<ai type="BALANCED" />
-		<collision>
-			<radius normal="13" />
-			<height normal="22.5" />
-		</collision>
-	</npc>
-	<npc id="113179" level="55" displayId="13179" usingServerSideName="true" title="L2J NPC Bot" usingServerSideTitle="true" type="L2Npc" name="Knight Leader Elite Mercenary">
-		<!-- Confirmed CT2.5 -->
-		<race>HUMAN</race>
-		<sex>MALE</sex>
-		<stats str="40" int="21" dex="30" wit="20" con="43" men="25">
-			<vitals hp="1673.05473" hpRegen="6.5" mp="889.8" mpRegen="2.4" />
-			<attack physical="388.11142" magical="265.02979" random="10" critical="4" accuracy="4.75" attackSpeed="253" type="FIST" range="40" distance="80" width="120" />
-			<defence physical="223.6362" magical="163.64727" />
-			<attribute>
-				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
-			</attribute>
-			<speed>
-				<walk ground="36.48" />
-				<run ground="180" />
-			</speed>
-		</stats>
-		<status undying="false" />
-		<skillList>
-			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
-			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
-			<skill id="4410" level="11" /> <!--Average P. Atk. -->
-			<skill id="4411" level="11" /> <!--Average M. Atk. -->
-			<skill id="4412" level="11" /> <!--Average P. Def. -->
-			<skill id="4413" level="11" /> <!--Average M. Def. -->
-			<skill id="4414" level="2" /> <!--Standard Type -->
-			<skill id="4415" level="1" /> <!--Bare Hands -->
-			<skill id="4416" level="14" /> <!--Humans -->
-		</skillList>
-		<shots soul="2" spirit="2" />
-		<exCrtEffect>false</exCrtEffect>
-		<ai type="BALANCED" />
-		<collision>
-			<radius normal="12" />
-			<height normal="24.5" />
-		</collision>
-	</npc>
-	<npc id="113180" level="55" displayId="13180" usingServerSideName="true" title="L2J NPC Bot" usingServerSideTitle="true" type="L2Npc" name="Commander Elite Mercenary">
-		<!-- Confirmed CT2.5 -->
-		<race>DARK_ELF</race>
-		<sex>MALE</sex>
-		<stats str="40" int="21" dex="30" wit="20" con="43" men="25">
-			<vitals hp="1673.05473" hpRegen="6.5" mp="889.8" mpRegen="2.4" />
-			<attack physical="388.11142" magical="265.02979" random="10" critical="4" accuracy="4.75" attackSpeed="253" type="FIST" range="40" distance="80" width="120" />
-			<defence physical="223.6362" magical="163.64727" />
-			<attribute>
-				<defence fire="20" water="20" wind="20" earth="20" holy="20" dark="20" />
-			</attribute>
-			<speed>
-				<walk ground="29.8" />
-				<run ground="180" />
-			</speed>
-		</stats>
-		<status undying="false" />
-		<skillList>
-			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
-			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
-			<skill id="4410" level="11" /> <!--Average P. Atk. -->
-			<skill id="4411" level="11" /> <!--Average M. Atk. -->
-			<skill id="4412" level="11" /> <!--Average P. Def. -->
-			<skill id="4413" level="11" /> <!--Average M. Def. -->
-			<skill id="4414" level="2" /> <!--Standard Type -->
-			<skill id="4415" level="1" /> <!--Bare Hands -->
-			<skill id="4416" level="16" /> <!--Dark Elves -->
-		</skillList>
-		<shots soul="2" spirit="2" />
-		<exCrtEffect>false</exCrtEffect>
-		<ai type="BALANCED" />
-		<collision>
-			<radius normal="10" />
-			<height normal="26.985" />
-		</collision>
-	</npc>
 	<npc id="113148" level="55" displayId="13148" usingServerSideName="true" title="L2J Monster Bot" usingServerSideTitle="true" type="L2Monster" name="Lindvior">
 		<!-- Confirmed CT2.5 -->
 		<race>DRAGON</race>
@@ -450,25 +15,106 @@
 				<walk ground="100" />
 				<run ground="180" />
 			</speed>
+			<hitTime>760</hitTime>
 		</stats>
-		<status targetable="false" undying="false" showName="false" flying="true" />
+		<!-- Confirmed CT2.5 -->
+		<parameters>
+			<param name="MoveAroundSocial" value="70" />
+			<param name="MoveAroundSocial1" value="70" />
+			<param name="MoveAroundSocial2" value="70" />
+			<param name="SoulShot" value="100" />
+			<param name="SoulShotRate" value="10" />
+			<param name="SpiritShot" value="100" />
+			<param name="SpiritShotRate" value="5" />
+			<param name="LongRangeGuardRate" value="5" />
+			<skill name="SpecialSkill" id="4318" level="1" /> <!-- Ultimate Buff -->
+		</parameters>
+		<acquire expRate="3.7084824" sp="182" />
+		<status undying="false" canBeSown="true" flying="true" />
 		<skillList>
-			<skill id="4408" level="1" /> <!--HP Increase (1x) -->
+			<skill id="4318" level="1" /> <!--Ultimate Buff -->
+			<skill id="4408" level="10" /> <!--HP Increase (2x) -->
 			<skill id="4409" level="1" /> <!--MP Increase (1x) -->
-			<skill id="4410" level="11" /> <!--Average P. Atk. -->
-			<skill id="4411" level="11" /> <!--Average M. Atk. -->
-			<skill id="4412" level="11" /> <!--Average P. Def. -->
-			<skill id="4413" level="11" /> <!--Average M. Def. -->
+			<skill id="4410" level="10" /> <!--Slightly Weak P. Atk. -->
+			<skill id="4411" level="10" /> <!--Slightly Weak M. Atk. -->
+			<skill id="4412" level="12" /> <!--Slightly Strong P. Def. -->
+			<skill id="4413" level="12" /> <!--Slightly Strong M. Def. -->
 			<skill id="4414" level="2" /> <!--Standard Type -->
-			<skill id="4415" level="1" /> <!--Bare Hands -->
-			<skill id="4416" level="10" /> <!--Dragons -->
+			<skill id="4415" level="3" /> <!--One-handed Sword -->
+			<skill id="4416" level="6" /> <!--Humanoids -->
 		</skillList>
-		<shots soul="2" spirit="2" />
+		<shots shotChance="30" spiritChance="30" />
 		<exCrtEffect>false</exCrtEffect>
-		<ai type="BALANCED" isAggressive="true" />
+		<sNpcPropHpRate>2</sNpcPropHpRate>
+		<ai aggroRange="1000" clanHelpRange="300">
+			<clanList>
+				<clan>BOT</clan>
+			</clanList>
+		</ai>
+		<dropLists>
+			<death>
+				<group chance="70">
+					<item id="57" min="476" max="952" chance="100" /> <!-- Adena -->
+				</group>
+				<group chance="0.17560000717639923">
+					<item id="69" min="1" max="1" chance="2.8343" /> <!-- Bastard Sword -->
+					<item id="125" min="1" max="1" chance="2.8343" /> <!-- Spinebone Sword -->
+					<item id="2021" min="1" max="1" chance="88.6626" /> <!-- Spinebone Sword Blade -->
+					<item id="126" min="1" max="1" chance="2.8343" /> <!-- Artisan's Sword -->
+					<item id="128" min="1" max="1" chance="2.8345" /> <!-- Knight's Sword -->
+				</group>
+				<group chance="7.915200233459473">
+					<item id="1875" min="1" max="1" chance="5.7699" /> <!-- Stone of Purity -->
+					<item id="1879" min="1" max="1" chance="14.4247" /> <!-- Cokes -->
+					<item id="1885" min="1" max="1" chance="7.2123" /> <!-- High-Grade Suede -->
+					<item id="5550" min="1" max="1" chance="1.154" /> <!-- Durable Metal Plate -->
+					<item id="5549" min="1" max="1" chance="8.6548" /> <!-- Metallic Thread -->
+					<item id="955" min="1" max="1" chance="0.3462" /> <!-- Scroll: Enchant Weapon (D-Grade) -->
+					<item id="2274" min="1" max="1" chance="0.6182" /> <!-- Recipe: Skull Breaker -->
+					<item id="2975" min="1" max="1" chance="7.7275" /> <!-- Recipe: Brigandine Helmet -->
+					<item id="6667" min="1" max="1" chance="54.0924" /> <!-- Deluxe Chest Key - Grade 3 -->
+				</group>
+				<group chance="42.0">
+					<item id="8600" min="1" max="1" chance="55" /> <!-- Herb of Life -->
+					<item id="8601" min="1" max="1" chance="38" /> <!-- Greater Herb of Life -->
+					<item id="8602" min="1" max="1" chance="7" /> <!-- Superior Herb of Life -->
+				</group>
+				<group chance="11.0">
+					<item id="8603" min="1" max="1" chance="50" /> <!-- Herb of Mana -->
+					<item id="8604" min="1" max="1" chance="43" /> <!-- Greater Herb of Mana -->
+					<item id="8605" min="1" max="1" chance="7" /> <!-- Superior Herb of Mana -->
+				</group>
+				<group chance="25.0">
+					<item id="8606" min="1" max="1" chance="20" /> <!-- Herb of Power -->
+					<item id="8608" min="1" max="1" chance="20" /> <!-- Herb of Alacrity -->
+					<item id="8610" min="1" max="1" chance="20" /> <!-- Herb of Critical Attack - Probability -->
+					<item id="10655" min="1" max="1" chance="20" /> <!-- Herb of Vampiric Rage -->
+					<item id="10656" min="1" max="1" chance="20" /> <!-- Herb of Critical Attack - Power -->
+				</group>
+				<group chance="10.0">
+					<item id="8607" min="1" max="1" chance="50" /> <!-- Herb of Magic -->
+					<item id="8609" min="1" max="1" chance="50" /> <!-- Herb of Casting Spd. -->
+				</group>
+				<group chance="1.0">
+					<item id="8612" min="1" max="1" chance="33" /> <!-- Herb of the Warrior -->
+					<item id="8613" min="1" max="1" chance="33" /> <!-- Herb of the Mystic -->
+					<item id="8614" min="1" max="1" chance="34" /> <!-- Herb of Recovery -->
+				</group>
+				<group chance="11.0">
+					<item id="8611" min="1" max="1" chance="94" /> <!-- Herb of Speed -->
+					<item id="10657" min="1" max="1" chance="3" /> <!-- Herb of Doubt -->
+					<item id="13028" min="1" max="1" chance="3" /> <!-- Vitality Replenishing Herb -->
+				</group>
+			</death>
+			<corpse>
+				<item id="2267" min="1" max="1" chance="1.1668" /> <!-- Recipe: Gastraphetes -->
+				<item id="1936" min="1" max="1" chance="9.2328" /> <!-- White Tunic Pattern -->
+				<item id="1900" min="1" max="1" chance="12.3441" /> <!-- Enchanted Necklace Chain -->
+			</corpse>
+		</dropLists>
 		<collision>
-			<radius normal="190" />
-			<height normal="390.6" />
+			<radius normal="10" grown="12" />
+			<height normal="23" grown="27.6" />
 		</collision>
 	</npc>
 </list>
