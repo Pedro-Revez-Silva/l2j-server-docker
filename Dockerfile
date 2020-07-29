@@ -32,5 +32,3 @@ WORKDIR /opt/l2j/server
 EXPOSE 7777 2106
 
 ENTRYPOINT [ "/entry-point.sh" ]
-
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD [ "time" ]

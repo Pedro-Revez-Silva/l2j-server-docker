@@ -7,7 +7,9 @@
 
 JAVA_XMS=${JAVA_XMS:-"512m"}
 JAVA_XMX=${JAVA_XMX:-"2g"}
-SERVER_IP=${SERVER_IP:-"127.0.0.1"}
+IP_ADDRESS=${IP_ADDRESS:-"127.0.0.1"}
+LAN_SUBNET=${LAN_SUBNET:-"10.0.0.0/8"}
+LAN_ADDRESS=${LAN_ADDRESS:-"10.0.0.0"}
 RATES_XP=${RATE_XP:-"1"}
 RATES_SP=${RATE_SP:-"1"}
 WEIGHT_LIMIT=${WEIGHT_LIMIT:-"1"}
@@ -142,9 +144,17 @@ sed -i "s#jdbc:mariadb://localhost/l2jgs#jdbc:mariadb://mariadb:3306/l2jgs#g" /o
 # Networking
 # ---------------------------------------------------------------------------
 
-sed -i "s#gameserver address=\"127.0.0.1\"#gameserver address=\"$SERVER_IP\"#g" /opt/l2j/server/game/config/default-ipconfig.xml
-if [ "$SERVER_IP" = "127.0.0.1" ]; then
-	mv /opt/l2j/server/game/config/default-ipconfig.xml /opt/l2j/server/game/config/ipconfig.xml
+
+DIC="/opt/l2j/server/game/config/default-ipconfig.xml"
+if test -d "$DIC"; then
+    if [ "$IP_ADDRESS" != "127.0.0.1" ]; then
+        sed -i "s#gameserver address=\"127.0.0.1\"#gameserver address=\"$IP_ADDRESS\"#g" /opt/l2j/server/game/config/default-ipconfig.xml
+    fi
+    if [ "$LAN_SUBNET" != "10.0.0.0/8" ]; then+
+        sed -i "s#define subnet=\"10.0.0.0/8\" address==\"10.0.0.0\"#define subnet=\"$LAN_SUBNET\" address==\"$LAN_ADDRESS\"#g" /opt/l2j/server/game/config/default-ipconfig.xml
+    fi
+    echo "default-ipconfig.xml file exists, moving default-ipconfig.xml to ipconfig.xml"
+    mv /opt/l2j/server/game/config/default-ipconfig.xml /opt/l2j/server/game/config/ipconfig.xml
 fi
 
 # ---------------------------------------------------------------------------

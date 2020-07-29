@@ -19,8 +19,10 @@ services:
   l2jserver:
     container_name: l2j-server-docker
     image: l2jserver/l2j-server-docker:latest
-    environment:      
-      SERVER_IP: "127.0.0.1"
+    environment:
+      IP_ADDRESS: "127.0.0.1"
+      LAN_ADDRESS: "10.0.0.0"
+      LAN_SUBNET: "10.0.0.0/8"
       JAVA_XMS: "512m"
       JAVA_XMX: "2g" 
       RATE_XP: "1"
@@ -29,10 +31,10 @@ services:
       ADMIN_RIGHTS: "True"
       FORCE_GEODATA: "False"
       COORD_SYNC: "-1"
-      HELLBOUND_ACCESS: "False"
+      HELLBOUND_ACCESS: "True"
       WEIGHT_LIMIT: "1"
       RUN_SPEED_BOOST: "1"
-      TVT_ENABLED: "False"
+      TVT_ENABLED: "True"
       SAVE_GM_SPAWN_ON_CUSTOM: "True"
       CUSTOM_SPAWNLIST_TABLE: "True"
       CUSTOM_NPC_DATA: "True"
