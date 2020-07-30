@@ -150,7 +150,7 @@ if test -d "$DIC"; then
     if [ "$IP_ADDRESS" != "127.0.0.1" ]; then
         sed -i "s#gameserver address=\"127.0.0.1\"#gameserver address=\"$IP_ADDRESS\"#g" /opt/l2j/server/game/config/default-ipconfig.xml
     fi
-    if [ "$LAN_SUBNET" != "10.0.0.0/8" ]; then+
+    if [ "$LAN_SUBNET" != "10.0.0.0/8" ]; then
         sed -i "s#define subnet=\"10.0.0.0/8\" address==\"10.0.0.0\"#define subnet=\"$LAN_SUBNET\" address==\"$LAN_ADDRESS\"#g" /opt/l2j/server/game/config/default-ipconfig.xml
     fi
     echo "default-ipconfig.xml file exists, moving default-ipconfig.xml to ipconfig.xml"
