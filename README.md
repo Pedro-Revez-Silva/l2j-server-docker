@@ -79,7 +79,7 @@ The default values can be modified in the docker-compose.yml file
 
 ### Managing the cluster with docker-compose.yml
 
-Start the cluster (the first time)
+Deploys the cluster (the first time)
 
 `docker-compose -f "docker-compose.yml" up -d`
 
@@ -87,9 +87,16 @@ Stop the cluster
 
 `docker-compose -f "docker-compose.yml" stop`
 
-Removes the cluster containers
+Start the cluster
+
+`docker-compose -f "docker-compose.yml" start`
+
+Removes the cluster containers (It will remove all your data)
 
 `docker-compose -f "docker-compose.yml" down`
+
+
+NOTE: To have a persistent database use stop/start after the deploy with `up`. And it's always recommended for live servers to stop the gameserver in-game before stop the whole container.
 
 
 ## Customize your own Docker images
