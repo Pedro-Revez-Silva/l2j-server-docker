@@ -102,6 +102,8 @@ The default values can be modified in the docker-compose.yml file
 - MAX_WAREHOUSE_SLOTS_NO_DWARF: Non-Dwarf character's warehouse capacity. This must be LESS then 300 or the client will crash. (default: "100")
 - MAX_WAREHOUSE_SLOTS_CLAN: Clan specific warehouse capacity. This must be LESS then 300 or the client will crash. (default: "200")
 - PET_XP_RATE: XP multiplier for leveling pets (default: "1")
+- ITEM_SPOIL_MULTIPLIER : Multiplies the amount of items looted from monster when a skill like Sweeper(Spoil) is used (default: "1")
+- ITEM_DROP_MULTIPLIER : Multiplies the amount of items dropped from monster on ground when it dies (default: "1")
 
 ### Managing the cluster with docker-compose.yml
 

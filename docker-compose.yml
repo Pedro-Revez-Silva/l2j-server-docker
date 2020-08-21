@@ -69,6 +69,8 @@ services:
       CUSTOM_MULTISELL_LOAD: "True"
       CUSTOM_BUYLIST_LOAD: "True"
       VITALITY_SYSTEM: "True"
+      ITEM_SPOIL_MULTIPLIER: "1"
+      ITEM_DROP_MULTIPLIER: "1"
     depends_on:
       - mariadb
     ports:

@@ -36,6 +36,8 @@ MAX_WAREHOUSE_SLOTS_DWARF=${MAX_WAREHOUSE_SLOTS_DWARF:-"120"}
 MAX_WAREHOUSE_SLOTS_NO_DWARF=${MAX_WAREHOUSE_SLOTS_NO_DWARF:-"100"}
 MAX_WAREHOUSE_SLOTS_CLAN=${MAX_WAREHOUSE_SLOTS_CLAN:-"200"}
 PET_XP_RATE=${PET_XP_RATE:-"1"}
+ITEM_SPOIL_MULTIPLIER=${ITEM_SPOIL_MULTIPLIER:-"1"}
+ITEM_DROP_MULTIPLIER=${ITEM_DROP_MULTIPLIER:-"1"}
 WEIGHT_LIMIT=${WEIGHT_LIMIT:-"1"}
 RUN_SPEED_BOOST=${RUN_SPEED_BOOST:-"1"}
 RATE_ADENA=${RATE_ADENA:-"1"}
@@ -181,6 +183,10 @@ sed -i "s#RateQuestRewardXP = 1#RateQuestRewardXP = $QUEST_MULTIPLIER_XP#g" /opt
 sed -i "s#RateQuestRewardSP = 1#RateQuestRewardSP = $QUEST_MULTIPLIER_SP#g" /opt/l2j/server/game/config/rates.properties
 sed -i "s#RateQuestReward = 1#RateQuestReward = $QUEST_MULTIPLIER_REWARD#g" /opt/l2j/server/game/config/rates.properties
 sed -i "s#PetXpRate = 1#PetXpRate = $PET_XP_RATE#g" /opt/l2j/server/game/config/rates.properties
+
+sed -i "s#DeathDropAmountMultiplier = 1#DeathDropAmountMultiplier = $ITEM_DROP_MULTIPLIER1#g" /opt/l2j/server/game/config/rates.properties
+sed -i "s#CorpseDropAmountMultiplier = 1#CorpseDropAmountMultiplier = $ITEM_SPOIL_MULTIPLIER#g" /opt/l2j/server/game/config/rates.properties
+
 sed -i "s#DropAmountMultiplierByItemId = 57,1#DropAmountMultiplierByItemId = 57,$RATE_ADENA#g" /opt/l2j/server/game/config/rates.properties
 
 # ---------------------------------------------------------------------------
