@@ -19,14 +19,38 @@ services:
   l2jserver:
     container_name: l2j-server-docker
     image: l2jserver/l2j-server-docker:latest
+    restart: always
     environment:
       IP_ADDRESS: "127.0.0.1"
+      DATABASE_ADDRESS: "mariadb"
+      DATABASE_PORT: "3306"
+      DATABASE_USER: "root"
+      DATABASE_PASS: "root"
       LAN_ADDRESS: "10.0.0.0"
       LAN_SUBNET: "10.0.0.0/8"
       JAVA_XMS: "512m"
       JAVA_XMX: "2g" 
       RATE_XP: "1"
       RATE_SP: "1"
+      QUEST_MULTIPLIER_XP: "1"
+      QUEST_MULTIPLIER_SP: "1"
+      QUEST_MULTIPLIER_REWARD: "1"
+      AUTO_LEARN_SKILLS: "False"
+      MAX_FREIGHT_SLOTS: "200"
+      DWARF_RECIPE_LIMIT: "50"
+      COMM_RECIPE_LIMIT: "50"
+      CRAFTING_SPEED_MULTIPLIER: "1"
+      FREE_TELEPORTING: "False"
+      STARTING_ADENA: "0"
+      STARTING_LEVEL: "1"
+      STARTING_SP: "0"
+      ALLOW_MANOR: "True"
+      SERVER_DEBUG: "False"
+      MAX_ONLINE_USERS: "500"
+      MAX_WAREHOUSE_SLOTS_DWARF: "120"
+      MAX_WAREHOUSE_SLOTS_NO_DWARF: "100"
+      MAX_WAREHOUSE_SLOTS_CLAN: "200"
+      PET_XP_RATE: "1"
       RATE_ADENA: "1"
       ADMIN_RIGHTS: "True"
       FORCE_GEODATA: "False"
@@ -44,6 +68,7 @@ services:
       CUSTOM_ITEMS_LOAD: "True"
       CUSTOM_MULTISELL_LOAD: "True"
       CUSTOM_BUYLIST_LOAD: "True"
+      VITALITY_SYSTEM: "True"
     depends_on:
       - mariadb
     ports:
