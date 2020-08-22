@@ -184,7 +184,7 @@ sed -i "s#RateQuestRewardSP = 1#RateQuestRewardSP = $QUEST_MULTIPLIER_SP#g" /opt
 sed -i "s#RateQuestReward = 1#RateQuestReward = $QUEST_MULTIPLIER_REWARD#g" /opt/l2j/server/game/config/rates.properties
 sed -i "s#PetXpRate = 1#PetXpRate = $PET_XP_RATE#g" /opt/l2j/server/game/config/rates.properties
 
-sed -i "s#DeathDropAmountMultiplier = 1#DeathDropAmountMultiplier = $ITEM_DROP_MULTIPLIER1#g" /opt/l2j/server/game/config/rates.properties
+sed -i "s#DeathDropAmountMultiplier = 1#DeathDropAmountMultiplier = $ITEM_DROP_MULTIPLIER#g" /opt/l2j/server/game/config/rates.properties
 sed -i "s#CorpseDropAmountMultiplier = 1#CorpseDropAmountMultiplier = $ITEM_SPOIL_MULTIPLIER#g" /opt/l2j/server/game/config/rates.properties
 
 sed -i "s#DropAmountMultiplierByItemId = 57,1#DropAmountMultiplierByItemId = 57,$RATE_ADENA#g" /opt/l2j/server/game/config/rates.properties
