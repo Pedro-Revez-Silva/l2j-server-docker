@@ -39,7 +39,7 @@ PET_XP_RATE=${PET_XP_RATE:-"1"}
 ITEM_SPOIL_MULTIPLIER=${ITEM_SPOIL_MULTIPLIER:-"1"}
 ITEM_DROP_MULTIPLIER=${ITEM_DROP_MULTIPLIER:-"1"}
 WEIGHT_LIMIT=${WEIGHT_LIMIT:-"1"}
-RUN_SPEED_BOOST=${RUN_SPEED_BOOST:-"1"}
+RUN_SPEED_BOOST=${RUN_SPEED_BOOST:-"0"}
 RATE_ADENA=${RATE_ADENA:-"1"}
 ADMIN_RIGHTS=${ADMIN_RIGHTS:-"False"}
 COORD_SYNC=${COORD_SYNC:-"-1"}
@@ -194,7 +194,6 @@ sed -i "s#DropAmountMultiplierByItemId = 57,1#DropAmountMultiplierByItemId = 57,
 # ---------------------------------------------------------------------------
 
 sed -i "s#Enabled = True#Enabled = $VITALITY_SYSTEM#g" /opt/l2j/server/game/config/vitality.properties
-
 
 # ---------------------------------------------------------------------------
 # Server Properties
