@@ -13,7 +13,7 @@ services:
       - /var/lib/mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: "root"
     ports:
       - "3306:3306"
   l2jserver:
@@ -52,7 +52,6 @@ services:
       COORD_SYNC: "-1"
       HELLBOUND_ACCESS: "True"
       WEIGHT_LIMIT: "1"
-      RUN_SPEED_BOOST: "1"
       TVT_ENABLED: "True"
       SAVE_GM_SPAWN_ON_CUSTOM: "True"
       CUSTOM_SPAWNLIST_TABLE: "True"

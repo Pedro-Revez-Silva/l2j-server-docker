@@ -3,14 +3,12 @@
 # L2J Server is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 # You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/. 
 
-FROM alpine:latest
+FROM adoptopenjdk/openjdk14:alpine
 
 COPY entry-point.sh /entry-point.sh
 
-ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk
-
 RUN apk update \ 
-    && apk --no-cache add openjdk11-jdk maven mariadb-client openjdk11-jre unzip git \
+    && apk --no-cache add maven mariadb-client unzip git \
     && mkdir -p /opt/l2j/server && mkdir -p /opt/l2j/target && cd /opt/l2j/target/ \
     && git clone --branch master --single-branch https://git@bitbucket.org/l2jserver/l2j-server-cli.git cli \
     && git clone --branch master --single-branch https://git@bitbucket.org/l2jserver/l2j-server-login.git login \
