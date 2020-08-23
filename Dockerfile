@@ -1,9 +1,9 @@
 # Copyright 2004-2020 L2J Server
 # L2J Server is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 # L2J Server is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-# You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/. 
+# You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/.
 
-FROM adoptopenjdk/openjdk14:alpine
+FROM openjdk:14-alpine
 
 LABEL maintainer="L2JServer" \
       version="2.6.3" \
@@ -12,7 +12,7 @@ LABEL maintainer="L2JServer" \
 COPY entry-point.sh /entry-point.sh
 
 RUN apk update \ 
-     && apk --no-cache add maven mariadb-client unzip git \
+    && apk --no-cache add maven mariadb-client unzip git \
     && mkdir -p /opt/l2j/server && mkdir -p /opt/l2j/target && cd /opt/l2j/target/ \
     && git clone --branch master --single-branch https://git@bitbucket.org/l2jserver/l2j-server-cli.git cli \
     && git clone --branch master --single-branch https://git@bitbucket.org/l2jserver/l2j-server-login.git login \
