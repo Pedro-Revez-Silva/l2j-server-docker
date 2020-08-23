@@ -5,10 +5,14 @@
 
 FROM adoptopenjdk/openjdk14:alpine
 
+LABEL maintainer="L2JServer" \
+      version="2.6.3" \
+      website="l2jserver.com"
+
 COPY entry-point.sh /entry-point.sh
 
 RUN apk update \ 
-    && apk --no-cache add maven mariadb-client unzip git \
+     && apk --no-cache add maven mariadb-client unzip git \
     && mkdir -p /opt/l2j/server && mkdir -p /opt/l2j/target && cd /opt/l2j/target/ \
     && git clone --branch master --single-branch https://git@bitbucket.org/l2jserver/l2j-server-cli.git cli \
     && git clone --branch master --single-branch https://git@bitbucket.org/l2jserver/l2j-server-login.git login \
