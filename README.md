@@ -1,4 +1,14 @@
-# L2j Server Docker
+# L2j Server Docker image running on Alpine Linux with docker-compose
+
+[![Docker Automated build](https://img.shields.io/docker/automated/l2jserver/l2j-server-docker.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/l2jserver/l2j-server-docker/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/l2jserver/l2j-server-docker.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/l2jserver/l2j-server-docker/)
+[![Docker Stars](https://img.shields.io/docker/stars/l2jserver/l2j-server-docker.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/l2jserver/l2j-server-docker/)
+
+[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.12.0-green.svg?style=for-the-badge&logo=alpine-linux)](https://alpinelinux.org/)
+[![MariaDB Version](https://img.shields.io/badge/Mariadb%20version-v10.4.13-green.svg?style=for-the-badge&logo=mariadb)](https://mariadb.org/)
+
+
+This docker-compose is using [(yobasystems/alpine-mariadb)](https://hub.docker.com/r/yobasystems/alpine-mariadb/) based on the minimal [Alpine Linux](https://alpinelinux.org/) with [MariaDB v10.4.13](https://mariadb.org/)
 
 ## Requirements 
 
