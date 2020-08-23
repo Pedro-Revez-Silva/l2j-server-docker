@@ -22,10 +22,6 @@ services:
     restart: always
     environment:
       IP_ADDRESS: "127.0.0.1"
-      DATABASE_ADDRESS: "mariadb"
-      DATABASE_PORT: "3306"
-      DATABASE_USER: "root"
-      DATABASE_PASS: "root"
       LAN_ADDRESS: "10.0.0.0"
       LAN_SUBNET: "10.0.0.0/8"
       JAVA_XMS: "512m"
@@ -45,7 +41,6 @@ services:
       STARTING_LEVEL: "1"
       STARTING_SP: "0"
       ALLOW_MANOR: "True"
-      SERVER_DEBUG: "False"
       MAX_ONLINE_USERS: "500"
       MAX_WAREHOUSE_SLOTS_DWARF: "120"
       MAX_WAREHOUSE_SLOTS_NO_DWARF: "100"
