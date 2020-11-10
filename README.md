@@ -16,7 +16,6 @@ This docker-compose is using [(yobasystems/alpine-mariadb)](https://hub.docker.c
 
 [Install Docker Desktop for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
 
-
 ### Linux
 
 [Install docker for Centos](https://docs.docker.com/engine/install/centos/)
