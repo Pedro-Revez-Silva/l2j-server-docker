@@ -8,8 +8,6 @@
 JAVA_XMS=${JAVA_XMS:-"512m"}
 JAVA_XMX=${JAVA_XMX:-"2g"}
 IP_ADDRESS=${IP_ADDRESS:-"127.0.0.1"}
-DATABASE_ADDRESS=${DATABASE_ADDRESS:-"mariadb"}
-DATABASE_PORT=${DATABASE_PORT:-"3306"}
 DATABASE_USER=${DATABASE_USER:-"root"}
 DATABASE_PASS=${DATABASE_PASS:-"root"}
 LAN_ADDRESS=${LAN_ADDRESS:-"10.0.0.0"}
@@ -55,6 +53,14 @@ CUSTOM_SKILLS_LOAD=${CUSTOM_SKILLS_LOAD:-"False"}
 CUSTOM_ITEMS_LOAD=${CUSTOM_ITEMS_LOAD:-"False"}
 CUSTOM_MULTISELL_LOAD=${CUSTOM_MULTISELL_LOAD:-"False"}
 CUSTOM_BUYLIST_LOAD=${CUSTOM_BUYLIST_LOAD:-"False"}
+BUFFER_SERVICE=${BUFFER_SERVICE:-"False"}
+BUFFER_SERVICE_COOLDOWN=${BUFFER_SERVICE_COOLDOWN:-"60"}
+BUFFER_SERVICE_MAX_LISTS=${BUFFER_SERVICE_MAX_LISTS:-"5"}
+BUFFER_DEBUG=${BUFFER_DEBUG:-"False"}
+BUFFER_SERVICE_VOICED=${BUFFER_SERVICE_VOICED:-"False"}
+BUFFER_SERVICE_VOICED_COMMAND=${BUFFER_SERVICE_VOICED_COMMAND:-"bufferservice"}
+BUFFER_SERVICE_VOICED_NAME=${BUFFER_SERVICE_VOICED_NAME:-"Voiced"}
+BUFFER_SERVICE_VOICED_REQUIRED_ITEM=${BUFFER_SERVICE_VOICED_REQUIRED_ITEM:-"0"}
 
 echo "Using environment configuration:"
 printenv | sort
@@ -62,30 +68,30 @@ printenv | sort
 echo "Waiting the MariaDB service"
 sleep 5s
 
-STATUS=$(nc -z "$DATABASE_ADDRESS" "$DATABASE_PORT"; echo $?)
+STATUS=$(nc -z mariadb 3306; echo $?)
 while [ "$STATUS" != 0 ]
 do
     sleep 3s
-    STATUS=$(nc -z "$DATABASE_ADDRESS" "$DATABASE_PORT"; echo $?)
+    STATUS=$(nc -z mariadb 3306; echo $?)
 done
 
 # ---------------------------------------------------------------------------
 # Database Installation
 # ---------------------------------------------------------------------------
 
-DATABASE=$(mysql -h "$DATABASE_ADDRESS" -P "$DATABASE_PORT" -u "$DATABASE_USER" -p"$DATABASE_PASS" -e "SHOW DATABASES" | grep l2jls)
+DATABASE=$(mysql -h mariadb -P 3306 -u "$DATABASE_USER" -p"$DATABASE_PASS" -e "SHOW DATABASES" | grep l2jls)
 if [ "$DATABASE" != "l2jls" ]; then
-    mysql -h "$DATABASE_ADDRESS" -P "$DATABASE_PORT" -u "$DATABASE_USER" -p"$DATABASE_PASS" -e "DROP DATABASE IF EXISTS l2jls";
-    mysql -h "$DATABASE_ADDRESS" -P "$DATABASE_PORT" -u "$DATABASE_USER" -p"$DATABASE_PASS" -e "DROP DATABASE IF EXISTS l2jgs";
+    mysql -h mariadb -P 3306 -u "$DATABASE_USER" -p"$DATABASE_PASS" -e "DROP DATABASE IF EXISTS l2jls";
+    mysql -h mariadb -P 3306 -u "$DATABASE_USER" -p"$DATABASE_PASS" -e "DROP DATABASE IF EXISTS l2jgs";
     
-    mysql -h "$DATABASE_ADDRESS" -P "$DATABASE_PORT" -u "$DATABASE_USER" -p"$DATABASE_PASS" -e "CREATE OR REPLACE USER 'l2j'@'%' IDENTIFIED BY 'l2jserver2019';";
-    mysql -h "$DATABASE_ADDRESS" -P "$DATABASE_PORT" -u "$DATABASE_USER" -p"$DATABASE_PASS" -e "GRANT ALL PRIVILEGES ON *.* TO 'l2j'@'%' IDENTIFIED BY 'l2jserver2019';";
-    mysql -h "$DATABASE_ADDRESS" -P "$DATABASE_PORT" -u "$DATABASE_USER" -p"$DATABASE_PASS" -e "FLUSH PRIVILEGES;";
+    mysql -h mariadb -P 3306 -u "$DATABASE_USER" -p"$DATABASE_PASS" -e "CREATE OR REPLACE USER 'l2j'@'%' IDENTIFIED BY 'l2jserver2019';";
+    mysql -h mariadb -P 3306 -u "$DATABASE_USER" -p"$DATABASE_PASS" -e "GRANT ALL PRIVILEGES ON *.* TO 'l2j'@'%' IDENTIFIED BY 'l2jserver2019';";
+    mysql -h mariadb -P 3306 -u "$DATABASE_USER" -p"$DATABASE_PASS" -e "FLUSH PRIVILEGES;";
     
     chmod +x /opt/l2j/server/cli/l2jcli.sh
-    java -jar /opt/l2j/server/cli/l2jcli.jar db install -sql /opt/l2j/server/login/sql -u l2j -p l2jserver2019 -m FULL -t LOGIN -c -mods -url jdbc:mariadb://"$DATABASE_ADDRESS":"$DATABASE_PORT"
-    java -jar /opt/l2j/server/cli/l2jcli.jar db install -sql /opt/l2j/server/game/sql -u l2j -p l2jserver2019 -m FULL -t GAME -c -mods -url jdbc:mariadb://"$DATABASE_ADDRESS":"$DATABASE_PORT"
-    #java -jar /opt/l2j/server/cli/l2jcli.jar account create -u l2j -p l2j -a 8 -url jdbc:mariadb://"$DATABASE_ADDRESS":"$DATABASE_PORT"
+    java -jar /opt/l2j/server/cli/l2jcli.jar db install -sql /opt/l2j/server/login/sql -u l2j -p l2jserver2019 -m FULL -t LOGIN -c -mods -url jdbc:mariadb://mariadb:3306
+    java -jar /opt/l2j/server/cli/l2jcli.jar db install -sql /opt/l2j/server/game/sql -u l2j -p l2jserver2019 -m FULL -t GAME -c -mods -url jdbc:mariadb://mariadb:3306
+    #java -jar /opt/l2j/server/cli/l2jcli.jar account create -u l2j -p l2j -a 8 -url jdbc:mariadb://mariadb:3306
 fi
 
 # ---------------------------------------------------------------------------
@@ -194,6 +200,19 @@ sed -i "s#DropAmountMultiplierByItemId = 57,1#DropAmountMultiplierByItemId = 57,
 # ---------------------------------------------------------------------------
 
 sed -i "s#Enabled = True#Enabled = $VITALITY_SYSTEM#g" /opt/l2j/server/game/config/vitality.properties
+
+# ---------------------------------------------------------------------------
+# Buffer Service
+# ---------------------------------------------------------------------------
+
+sed -i "s#Enabled=True#Enabled=$BUFFER_SERVICE#g" /opt/l2j/server/game/config/bufferservice.properties
+sed -i "s#HealCooldown=60#HealCooldown=$BUFFER_SERVICE_COOLDOWN#g" /opt/l2j/server/game/config/bufferservice.properties
+sed -i "s#MaxUniqueLists=5#MaxUniqueLists=$BUFFER_SERVICE_MAX_LISTS#g" /opt/l2j/server/game/config/bufferservice.properties
+sed -i "s#Debug=False#Debug=$BUFFER_DEBUG#g" /opt/l2j/server/game/config/bufferservice.properties
+sed -i "s#VoicedEnable=False#VoicedEnable=$BUFFER_SERVICE_VOICED#g" /opt/l2j/server/game/config/bufferservice.properties
+sed -i "s#VoicedCommand=bufferservice#VoicedCommand=$BUFFER_SERVICE_VOICED_COMMAND#g" /opt/l2j/server/game/config/bufferservice.properties
+sed -i "s#VoicedName=Voiced#VoicedName=$BUFFER_SERVICE_VOICED_NAME#g" /opt/l2j/server/game/config/bufferservice.properties
+sed -i "s#VoicedRequiredItem=0#VoicedRequiredItem=$BUFFER_SERVICE_VOICED_REQUIRED_ITEM#g" /opt/l2j/server/game/config/bufferservice.properties
 
 # ---------------------------------------------------------------------------
 # Server Properties

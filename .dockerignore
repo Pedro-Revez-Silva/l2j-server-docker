@@ -4,4 +4,4 @@
 .project
 !entry-point.sh
 docker-compose.yml
-custom
+custom/

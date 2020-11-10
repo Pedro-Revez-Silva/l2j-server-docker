@@ -1,8 +1,6 @@
 # L2j Server Docker image running on Alpine Linux with docker-compose
 
-[![Docker Automated build](https://img.shields.io/docker/automated/l2jserver/l2j-server-docker.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/l2jserver/l2j-server-docker/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/l2jserver/l2j-server-docker.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/l2jserver/l2j-server-docker/)
-[![Docker Stars](https://img.shields.io/docker/stars/l2jserver/l2j-server-docker.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/l2jserver/l2j-server-docker/)
 
 [![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.12.0-green.svg?style=for-the-badge&logo=alpine-linux)](https://alpinelinux.org/)
 [![MariaDB Version](https://img.shields.io/badge/Mariadb%20version-v10.4.13-green.svg?style=for-the-badge&logo=mariadb)](https://mariadb.org/)
@@ -10,15 +8,14 @@
 
 This docker-compose is using [(yobasystems/alpine-mariadb)](https://hub.docker.com/r/yobasystems/alpine-mariadb/) based on the minimal [Alpine Linux](https://alpinelinux.org/) with [MariaDB v10.4.13](https://mariadb.org/)
 
+
 ## Requirements 
+
 
 ### Windows
 
 [Install Docker Desktop for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
 
-After the installation enable the following checkbox in docker desktop > settings
-
-`[x] Expose daemon on tcp://localhost:2375 without TLS`
 
 ### Linux
 
@@ -30,17 +27,13 @@ Then start the linux service
 
 `systemctl status docker.service`
 
+
 ### Mac
 
 [Install Docker Desktop for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
 
 macOS must be version 10.13 or newer, i.e. High Sierra (10.13), Mojave (10.14) or Catalina (10.15).
 
-### Raspberry
-
-[Installing docker and docker-compose in Raspberry](https://dev.to/rohansawant/installing-docker-and-docker-compose-on-the-raspberry-pi-in-5-simple-steps-3mgl)
-
-Working in Raspberry Pi 4B.
 
 ## Use docker-compose.yml
 
@@ -50,11 +43,13 @@ After the docker installation run the following command in any Linux / Windows t
 
 Wait until the server is fully deployed and connected to 127.0.0.1 and you are ready to go.
 
+
 ### Logging
 
 If you want to check the logs while the server is starting/running use a terminal with the command
 
 `docker logs l2j-server-docker --tail 50 -f` 
+
 
 ### Attaching a shell to check the container files manually
 
@@ -62,9 +57,12 @@ Attach a shell to navigate around the server container files
 
 `docker exec -it l2j-server-docker /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"`
 
+
 ### Configurable environment variables
 
-The default values can be modified in the docker-compose.yml file
+The default values can be modified in the docker-compose.yml file. 
+
+The variables are optional, so they aren't in the default docker-compose.yml setup, but you can add them by yourself.
 
 - SERVER_IP : Your private or public server IP  (default: "127.0.0.1")
 - JAVA_XMS : Initial memory allocation pool (default: "512m")
@@ -86,8 +84,6 @@ The default values can be modified in the docker-compose.yml file
 - CUSTOM_ITEMS_LOAD:  Enables the custom items data (default: "False")
 - CUSTOM_MULTISELL_LOAD: Enables the multisell data (default: "False")
 - CUSTOM_BUYLIST_LOAD: Enables the buylist data (default: "False")
-- DATABASE_ADDRESS : IP address or host name of MariaDB server (default: "mariadb")
-- DATABASE_PORT : Port number to access MariaDB server (default: "3306")
 - DATABASE_USER : Database user that has admin priviledges on MariaDB server (default: "root")
 - DATABASE_PASS : Database password for user with admin priviledges (default: "root")
 - LAN_ADDRESS : External network address, which client is going to be using to connect to server (default: "10.0.0.0")
@@ -114,27 +110,37 @@ The default values can be modified in the docker-compose.yml file
 - PET_XP_RATE: XP multiplier for leveling pets (default: "1")
 - ITEM_SPOIL_MULTIPLIER : Multiplies the amount of items looted from monster when a skill like Sweeper(Spoil) is used (default: "1")
 - ITEM_DROP_MULTIPLIER : Multiplies the amount of items dropped from monster on ground when it dies (default: "1")
+- BUFFER_SERVICE: Enable/Disable BufferService (default: "False"). Requires CUSTOM_NPC_DATA enabled. 
+- BUFFER_SERVICE_COOLDOWN: How long players have to wait to heal again in seconds (default: "60").
+- BUFFER_SERVICE_MAX_LISTS: How many schemes players can have (default: "5").
+- BUFFER_SERVICE_VOICED: Enable/Disable voiced buffer (default: "False").
+- BUFFER_SERVICE_VOICED_COMMAND: The voiced command for the voiced buffer (default: "bufferservice").
+- BUFFER_SERVICE_VOICED_NAME: The name of the voiced buffer (default: "Voiced").
+- BUFFER_SERVICE_VOICED_REQUIRED_ITEM: Item id required to use the voiced buffer (default: "0").
+- BUFFER_DEBUG: Enable/Disable debug messages (default: "False").
 
 ### Managing the cluster with docker-compose.yml
 
-Deploys the cluster (the first time)
+Deploy the containers cluster (the first time)
 
-`docker-compose -f "docker-compose.yml" up -d`
+`docker-compose up -d`
 
 Stop the cluster
 
-`docker-compose -f "docker-compose.yml" stop`
+`docker-compose stop`
 
 Start the cluster
 
-`docker-compose -f "docker-compose.yml" start`
+`docker-compose start`
 
-Removes the cluster containers (It will remove all your data)
+Removes the cluster containers (WARNING: `down` will removes all your data)
 
-`docker-compose -f "docker-compose.yml" down`
+`docker-compose down`
 
 
-NOTE: To have a persistent database use stop/start after the deploy with `up`. And it's always recommended for live servers to stop the gameserver in-game before stop the whole container.
+To have a persistent server use stop/start. 
+
+It's always recommended for live servers to stop the gameserver in-game before stop the whole cluster.
 
 
 ## Customize your own Docker images
@@ -147,21 +153,14 @@ If you want recreate the images yourself checkout the following Dockerfiles repo
 
 Just rename the images, customize and use them with your own docker-compose file.
 
-## Customize your own container
-
-If you want to add custom code to the container, first `stop` it and run this command from the console:
-
-`docker cp ./custom/. l2j-server-docker:/` 
-
-Starting again the l2j-server container the changes will take effect. [Read this for more information](https://bitbucket.org/l2jserver/l2j-server-docker/src/master/custom/README.md).
 
 ## Troubleshooting
 
 Use `down` to stop the cluster but if you are experiencing problems execute the following commands to restart all the volumes and containers
 
-`docker volume prune`
-
 `docker system prune -a`
+
+`docker volume prune`
 
 
 # License
