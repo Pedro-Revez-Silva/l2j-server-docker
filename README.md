@@ -16,10 +16,6 @@ This docker-compose is using [(yobasystems/alpine-mariadb)](https://hub.docker.c
 
 [Install Docker Desktop for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
 
-After the installation enable the following checkbox in docker desktop > settings
-
-`[x] Expose daemon on tcp://localhost:2375 without TLS`
-
 ### Linux
 
 [Install docker for Centos](https://docs.docker.com/engine/install/centos/)
