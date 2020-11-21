@@ -224,8 +224,8 @@ sed -i "s#MaxOnlineUsers = 500#MaxOnlineUsers = $MAX_ONLINE_USERS#g" /opt/l2j/se
 # Database
 # ---------------------------------------------------------------------------
 
-sed -i "s#jdbc:mariadb://localhost/l2jls#jdbc:mariadb://$DATABASE_ADDRESS:$DATABASE_PORT/l2jls#g" /opt/l2j/server/login/config/database.properties
-sed -i "s#jdbc:mariadb://localhost/l2jgs#jdbc:mariadb://$DATABASE_ADDRESS:$DATABASE_PORT/l2jgs#g" /opt/l2j/server/game/config/database.properties
+sed -i "s#jdbc:mariadb://localhost/l2jls#jdbc:mariadb://mariadb:3306/l2jls#g" /opt/l2j/server/login/config/database.properties
+sed -i "s#jdbc:mariadb://localhost/l2jgs#jdbc:mariadb://mariadb:3306/l2jgs#g" /opt/l2j/server/game/config/database.properties
 
 # ---------------------------------------------------------------------------
 # Networking
