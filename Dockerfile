@@ -9,15 +9,20 @@ LABEL maintainer="L2JServer" \
       version="2.6.2.0" \
       website="l2jserver.com"
 
+ENV BRANCH_CLI=${BRANCH_CLI:-"master"} \
+    BRANCH_LOGIN=${BRANCH_LOGIN:-"master"} \
+    BRANCH_GAME=${BRANCH_GAME:-"develop"} \
+    BRANCH_DATA=${BRANCH_DATA:-"develop"}
+
 COPY entry-point.sh /entry-point.sh
 
 RUN apk update \ 
     && apk --no-cache add maven mariadb-client unzip git \
     && mkdir -p /opt/l2j/server && mkdir -p /opt/l2j/target && cd /opt/l2j/target/ \
-    && git clone --branch master --single-branch https://git@bitbucket.org/l2jserver/l2j-server-cli.git cli \
-    && git clone --branch master --single-branch https://git@bitbucket.org/l2jserver/l2j-server-login.git login \
-    && git clone --branch develop --single-branch https://git@bitbucket.org/l2jserver/l2j-server-game.git game \
-    && git clone --branch develop --single-branch https://git@bitbucket.org/l2jserver/l2j-server-datapack.git datapack \
+    && git clone --branch ${BRANCH_CLI} --single-branch https://git@bitbucket.org/l2jserver/l2j-server-cli.git cli \
+    && git clone --branch ${BRANCH_LOGIN} --single-branch https://git@bitbucket.org/l2jserver/l2j-server-login.git login \
+    && git clone --branch ${BRANCH_GAME} --single-branch https://git@bitbucket.org/l2jserver/l2j-server-game.git game \
+    && git clone --branch ${BRANCH_DATA} --single-branch https://git@bitbucket.org/l2jserver/l2j-server-datapack.git datapack \
     && cd /opt/l2j/target/cli && mvn -T 1C install \
     && cd /opt/l2j/target/login && mvn -T 1C install \
     && cd /opt/l2j/target/game && mvn -T 1C install \
