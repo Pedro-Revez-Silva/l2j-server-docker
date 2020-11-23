@@ -9,7 +9,7 @@ LABEL maintainer="L2JServer" \
       version="2.6.2.0" \
       website="l2jserver.com"
 
-COPY entry-point.sh /entry-point.sh
+COPY entrypoint.sh /entrypoint.sh
 
 RUN apk update \ 
     && apk --no-cache add maven mariadb-client unzip git \
@@ -18,20 +18,20 @@ RUN apk update \
     && git clone --branch master --single-branch https://git@bitbucket.org/l2jserver/l2j-server-login.git login \
     && git clone --branch develop --single-branch https://git@bitbucket.org/l2jserver/l2j-server-game.git game \
     && git clone --branch develop --single-branch https://git@bitbucket.org/l2jserver/l2j-server-datapack.git datapack \
-    && cd /opt/l2j/target/cli && mvn -T 1C install \
-    && cd /opt/l2j/target/login && mvn -T 1C install \
-    && cd /opt/l2j/target/game && mvn -T 1C install \
-    && cd /opt/l2j/target/datapack && mvn -T 1C install \
+    && cd /opt/l2j/target/cli && chmod 755 mvnw && ./mvnw install \
+    && cd /opt/l2j/target/login && chmod 755 mvnw && ./mvnw install \
+    && cd /opt/l2j/target/game && chmod 755 mvnw && ./mvnw install \
+    && cd /opt/l2j/target/datapack && chmod 755 mvnw && ./mvnw install \
     && unzip /opt/l2j/target/cli/target/*.zip -d /opt/l2j/server/cli \
     && unzip /opt/l2j/target/login/target/*.zip -d /opt/l2j/server/login \
     && unzip /opt/l2j/target/game/target/*.zip -d /opt/l2j/server/game \
     && unzip /opt/l2j/target/datapack/target/*.zip -d /opt/l2j/server/game \
     && rm -rf /opt/l2j/target/ && apk del maven git \
-    && chmod +x /opt/l2j/server/cli/*.sh /opt/l2j/server/game/*.sh /opt/l2j/server/login/*.sh /entry-point.sh
+    && chmod +x /opt/l2j/server/cli/*.sh /opt/l2j/server/game/*.sh /opt/l2j/server/login/*.sh /entrypoint.sh
 
 
 WORKDIR /opt/l2j/server
 
 EXPOSE 7777 2106
 
-ENTRYPOINT [ "/entry-point.sh" ]
+ENTRYPOINT [ "/entrypoint.sh" ]

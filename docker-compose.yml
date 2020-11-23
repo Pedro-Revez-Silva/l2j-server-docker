@@ -25,14 +25,20 @@ services:
       RATE_XP: "1"
       RATE_SP: "1"
       ADMIN_RIGHTS: "True"
-      HELLBOUND_ACCESS: "False"
-      TVT_ENABLED: "False"
+      HELLBOUND_ACCESS: "True"
+      TVT_ENABLED: "True"
       FORCE_GEODATA: "False"
       COORD_SYNC: "-1"
-      CUSTOM_NPC_DATA: "True"
       BUFFER_SERVICE: "True"
+      CUSTOM_NPC_DATA: "True"
       SAVE_GM_SPAWN_ON_CUSTOM: "True"
       CUSTOM_SPAWNLIST_TABLE: "True"
+      CUSTOM_TELEPORT_TABLE: "True"
+      CUSTOM_NPC_BUFFER_TABLES: "True"
+      CUSTOM_SKILLS_LOAD: "True"
+      CUSTOM_ITEMS_LOAD: "True"
+      CUSTOM_MULTISELL_LOAD: "True"
+      CUSTOM_BUYLIST_LOAD: "True"
     depends_on:
       - mariadb
     ports:

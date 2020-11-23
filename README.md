@@ -142,7 +142,7 @@ To have a persistent server use stop/start.
 It's always recommended for live servers to stop the gameserver in-game before stop the whole cluster.
 
 
-## Customize your own Docker images
+## Customize your own Docker image
 
 If you want recreate the images yourself checkout the following Dockerfiles repositories
 
@@ -150,7 +150,13 @@ If you want recreate the images yourself checkout the following Dockerfiles repo
 
 [l2jserver/l2j-server-docker](https://bitbucket.org/l2jserver/l2j-server-docker)
 
-Just rename the images, customize and use them with your own docker-compose file.
+
+Customize the l2j-server image and rebuild it with the following command
+
+`docker build -t l2jserver/l2j-server-docker:latest .`
+
+Then you will ready to use the custom image with your docker-compose file.
+
 
 
 ## Troubleshooting
