@@ -5,3 +5,4 @@
 !entry-point.sh
 docker-compose.yml
 custom/
+cloud/
