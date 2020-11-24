@@ -20,6 +20,12 @@ services:
     container_name: l2j-server-docker
     image: l2jserver/l2j-server-docker:latest
     restart: always
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    #   args:
+    #     branch_gs: "develop"
+    #     branch_dp: "develop"
     environment:
       IP_ADDRESS: ${GAMESERVER_ADDRESS}
       RATE_XP: "1"

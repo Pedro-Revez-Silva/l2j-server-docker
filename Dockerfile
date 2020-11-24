@@ -11,13 +11,16 @@ LABEL maintainer="L2JServer" \
 
 COPY entrypoint.sh /entrypoint.sh
 
+ARG branch_gs=develop
+ARG branch_dp=develop
+
 RUN apk update \ 
     && apk --no-cache add maven mariadb-client unzip git \
     && mkdir -p /opt/l2j/server && mkdir -p /opt/l2j/target && cd /opt/l2j/target/ \
     && git clone --branch master --single-branch https://git@bitbucket.org/l2jserver/l2j-server-cli.git cli \
     && git clone --branch master --single-branch https://git@bitbucket.org/l2jserver/l2j-server-login.git login \
-    && git clone --branch develop --single-branch https://git@bitbucket.org/l2jserver/l2j-server-game.git game \
-    && git clone --branch develop --single-branch https://git@bitbucket.org/l2jserver/l2j-server-datapack.git datapack \
+    && git clone --branch $branch_gs --single-branch https://git@bitbucket.org/l2jserver/l2j-server-game.git game \
+    && git clone --branch $branch_dp --single-branch https://git@bitbucket.org/l2jserver/l2j-server-datapack.git datapack \
     && cd /opt/l2j/target/cli && chmod 755 mvnw && ./mvnw install \
     && cd /opt/l2j/target/login && chmod 755 mvnw && ./mvnw install \
     && cd /opt/l2j/target/game && chmod 755 mvnw && ./mvnw install \
