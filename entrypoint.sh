@@ -63,7 +63,10 @@ BUFFER_SERVICE_VOICED=${BUFFER_SERVICE_VOICED:-"False"}
 BUFFER_SERVICE_VOICED_COMMAND=${BUFFER_SERVICE_VOICED_COMMAND:-"bufferservice"}
 BUFFER_SERVICE_VOICED_NAME=${BUFFER_SERVICE_VOICED_NAME:-"Voiced"}
 BUFFER_SERVICE_VOICED_REQUIRED_ITEM=${BUFFER_SERVICE_VOICED_REQUIRED_ITEM:-"0"}
-
+DISCORD_BOT_ENABLE=${DISCORD_BOT_ENABLE:-"False"}
+DISCORD_BOT_PREFIX=${DISCORD_BOT_PREFIX:-"//"}
+DISCORD_BOT_TOKEN=${DISCORD_BOT_TOKEN:-"NzY3Mzg5NjE"}
+DISCORD_BOT_CHANNEL_ID=${DISCORD_BOT_CHANNEL_ID:-"732358666681843752"}
 
 echo "Using environment configuration:"
 printenv | sort
@@ -216,6 +219,15 @@ sed -i "s#VoicedEnable=False#VoicedEnable=$BUFFER_SERVICE_VOICED#g" /opt/l2j/ser
 sed -i "s#VoicedCommand=bufferservice#VoicedCommand=$BUFFER_SERVICE_VOICED_COMMAND#g" /opt/l2j/server/game/config/bufferservice.properties
 sed -i "s#VoicedName=Voiced#VoicedName=$BUFFER_SERVICE_VOICED_NAME#g" /opt/l2j/server/game/config/bufferservice.properties
 sed -i "s#VoicedRequiredItem=0#VoicedRequiredItem=$BUFFER_SERVICE_VOICED_REQUIRED_ITEM#g" /opt/l2j/server/game/config/bufferservice.properties
+
+# ---------------------------------------------------------------------------
+# Discord Properties
+# ---------------------------------------------------------------------------
+
+sed -i "s#BotEnable = False#BotEnable=$DISCORD_BOT_ENABLE#g" /opt/l2j/server/game/config/discord.properties
+sed -i "s#BotPrefix = //#BotPrefix = $DISCORD_BOT_PREFIX#g" /opt/l2j/server/game/config/discord.properties
+sed -i "s#BotToken = NzY3Mzg5NjE#BotToken=$DISCORD_BOT_TOKEN#g" /opt/l2j/server/game/config/discord.properties
+sed -i "s#ConsoleLogChannelId = 732358666681843752#ConsoleLogChannelId=$DISCORD_BOT_CHANNEL_ID#g" /opt/l2j/server/game/config/discord.properties
 
 # ---------------------------------------------------------------------------
 # Server Properties
