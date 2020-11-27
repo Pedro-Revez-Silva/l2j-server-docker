@@ -117,6 +117,39 @@ The variables are optional, so they aren't in the default docker-compose.yml set
 - BUFFER_SERVICE_VOICED_NAME: The name of the voiced buffer (default: "Voiced").
 - BUFFER_SERVICE_VOICED_REQUIRED_ITEM: Item id required to use the voiced buffer (default: "0").
 - BUFFER_DEBUG: Enable/Disable debug messages (default: "False").
+- DISCORD_BOT_ENABLE: Enable/Disable Discord bot (default: "False"). 
+- DISCORD_BOT_PREFIX: Use the Prefix for your Discord bot to listen the bot commands (default: "//"). 
+- DISCORD_BOT_TOKEN: A Token from Discord (default: "NzY3Mzg5NjE").
+- DISCORD_BOT_CHANNEL_ID: A Channel Id from Discord (default: "732358666681843752").
+
+### Connecting to Discord
+
+Use the link below to create your discord bot and there you will find the info needed for (DiscordBotToken =)
+
+https://discordapp.com/developers/applications/
+
+Create a discord server and activate Developer mode. (User Settings->Appearance->Developer Mode.)
+
+Developer Mode exposes context menu items helpful for people writing bot using Discord API.
+
+https://discordpy.readthedocs.io/en/latest/discord.html - A guide how to create a Bot account.
+
+See also https://discordpy.readthedocs.io/en/latest/discord.html#inviting-your-bot - on how to invite your bot.
+
+#### Getting the TOKEN
+
+A Discord Bot Token is a short phrase (represented as a jumble of letters and numbers) that acts as a key to control a Discord Bot.
+
+Tokens are used inside bot code to send commands back and forth to the API, which in turn controls bot actions.
+
+WARNING Never share your Discord Bot Token with anyone. WARNING.
+
+#### Getting the Channel Id
+
+Use the Channel ID from your Discord Server/Guild that you want the server logs to be posted.
+
+Server admins hide this channel from public view. Developer Mode must be ON. Right click the channel to get the id. (Copy ID)
+
 
 ### Managing the cluster with docker-compose.yml
 
@@ -157,7 +190,15 @@ Customize the l2j-server image and rebuild it with the following command
 
 Then you will ready to use the custom image with your docker-compose file.
 
+## Attach a bash shell to the server
 
+A shell for l2jserver container
+
+`docker exec -it l2jserver /bin/bash`
+
+A shell for mariadb container
+
+`docker exec -it mariadb /bin/bash`
 
 ## Troubleshooting
 
