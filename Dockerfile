@@ -6,7 +6,7 @@
 FROM openjdk:15-alpine
 
 LABEL maintainer="L2JServer" \
-      version="2.6.2.0" \
+      branch="HEAD" \
       website="l2jserver.com"
 
 COPY entrypoint.sh /entrypoint.sh
