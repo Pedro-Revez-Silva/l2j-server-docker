@@ -128,32 +128,10 @@ fi
 
 # If this option is set to True every newly created character will have access level 127. This means that every character created will have Administrator Privileges.
 # Default: False
-sed -i "s#EverybodyHasAdminRights = False#EverybodyHasAdminRights = $ADMIN_RIGHTS#g" /opt/l2j/server/game/config/general.properties
-sed -i "s#HellboundWithoutQuest = False#HellboundWithoutQuest = $HELLBOUND_ACCESS#g" /opt/l2j/server/game/config/general.properties
-
-sed -i "s#AllowManor = True#AllowManor = $ALLOW_MANOR#g" /opt/l2j/server/game/config/general.properties
-sed -i "s#Debug = False#Debug = $SERVER_DEBUG#g" /opt/l2j/server/game/config/general.properties
 
 # ---------------------------------------------------------------------------
 # Character
 # ---------------------------------------------------------------------------
-sed -i "s#WeightLimit = 1#WeightLimit = $WEIGHT_LIMIT#g" /opt/l2j/server/game/config/character.properties
-sed -i "s#RunSpeedBoost = 0#RunSpeedBoost = $RUN_SPEED_BOOST#g" /opt/l2j/server/game/config/character.properties
-sed -i "s#AutoLearnSkills = False#AutoLearnSkills = $AUTO_LEARN_SKILLS#g" /opt/l2j/server/game/config/character.properties
-sed -i "s#MaximumFreightSlots = 200#MaximumFreightSlots = $MAX_FREIGHT_SLOTS#g" /opt/l2j/server/game/config/character.properties
-
-sed -i "s#DwarfRecipeLimit = 50#DwarfRecipeLimit = $DWARF_RECIPE_LIMIT#g" /opt/l2j/server/game/config/character.properties
-sed -i "s#CommonRecipeLimit = 50#CommonRecipeLimit = $COMM_RECIPE_LIMIT#g" /opt/l2j/server/game/config/character.properties
-sed -i "s#CraftingSpeed = 1#CraftingSpeed = $CRAFTING_SPEED_MULTIPLIER#g" /opt/l2j/server/game/config/character.properties
-
-sed -i "s#StartingAdena = 0#StartingAdena = $STARTING_ADENA#g" /opt/l2j/server/game/config/character.properties
-sed -i "s#StartingLevel = 1#StartingLevel = $STARTING_LEVEL#g" /opt/l2j/server/game/config/character.properties
-sed -i "s#StartingSP = 0#StartingSP = $STARTING_SP#g" /opt/l2j/server/game/config/character.properties
-sed -i "s#FreeTeleporting = False#FreeTeleporting = $FREE_TELEPORTING#g" /opt/l2j/server/game/config/character.properties
-
-sed -i "s#MaximumWarehouseSlotsForDwarf = 120#MaximumWarehouseSlotsForDwarf = $MAX_WAREHOUSE_SLOTS_DWARF#g" /opt/l2j/server/game/config/character.properties
-sed -i "s#MaximumWarehouseSlotsForNoDwarf = 100#MaximumWarehouseSlotsForNoDwarf = $MAX_WAREHOUSE_SLOTS_NO_DWARF#g" /opt/l2j/server/game/config/character.properties
-sed -i "s#MaximumWarehouseSlotsForClan = 200#MaximumWarehouseSlotsForClan = $MAX_WAREHOUSE_SLOTS_CLAN#g" /opt/l2j/server/game/config/character.properties
 
 # ---------------------------------------------------------------------------
 # Geodata
@@ -174,32 +152,9 @@ fi
 # Custom Components
 # ---------------------------------------------------------------------------
 
-sed -i "s#Enabled = False#Enabled = $TVT_ENABLED#g" /opt/l2j/server/game/config/tvt.properties
-sed -i "s#CustomSpawnlistTable = False#CustomSpawnlistTable = $CUSTOM_SPAWNLIST_TABLE#g" /opt/l2j/server/game/config/general.properties
-sed -i "s#SaveGmSpawnOnCustom = False#SaveGmSpawnOnCustom = $SAVE_GM_SPAWN_ON_CUSTOM#g" /opt/l2j/server/game/config/general.properties
-sed -i "s#CustomNpcData = False#CustomNpcData = $CUSTOM_NPC_DATA#g" /opt/l2j/server/game/config/general.properties
-sed -i "s#CustomTeleportTable = False#CustomTeleportTable = $CUSTOM_TELEPORT_TABLE#g" /opt/l2j/server/game/config/general.properties
-sed -i "s#CustomNpcBufferTables = False#CustomNpcBufferTables = $CUSTOM_NPC_BUFFER_TABLES#g" /opt/l2j/server/game/config/general.properties
-sed -i "s#CustomSkillsLoad = False#CustomSkillsLoad = $CUSTOM_SKILLS_LOAD#g" /opt/l2j/server/game/config/general.properties
-sed -i "s#CustomItemsLoad = False#CustomItemsLoad = $CUSTOM_ITEMS_LOAD#g" /opt/l2j/server/game/config/general.properties
-sed -i "s#CustomMultisellLoad = False#CustomMultisellLoad = $CUSTOM_MULTISELL_LOAD#g" /opt/l2j/server/game/config/general.properties
-sed -i "s#CustomBuyListLoad = False#CustomBuyListLoad = $CUSTOM_BUYLIST_LOAD#g" /opt/l2j/server/game/config/general.properties
-
 # ---------------------------------------------------------------------------
 # Rates
 # ---------------------------------------------------------------------------
-
-sed -i "s#RateXp = 1#RateXp = $RATE_XP#g" /opt/l2j/server/game/config/rates.properties
-sed -i "s#RateSp = 1#RateSp = $RATE_SP#g" /opt/l2j/server/game/config/rates.properties
-sed -i "s#RateQuestRewardXP = 1#RateQuestRewardXP = $QUEST_MULTIPLIER_XP#g" /opt/l2j/server/game/config/rates.properties
-sed -i "s#RateQuestRewardSP = 1#RateQuestRewardSP = $QUEST_MULTIPLIER_SP#g" /opt/l2j/server/game/config/rates.properties
-sed -i "s#RateQuestReward = 1#RateQuestReward = $QUEST_MULTIPLIER_REWARD#g" /opt/l2j/server/game/config/rates.properties
-sed -i "s#PetXpRate = 1#PetXpRate = $PET_XP_RATE#g" /opt/l2j/server/game/config/rates.properties
-
-sed -i "s#DeathDropAmountMultiplier = 1#DeathDropAmountMultiplier = $ITEM_DROP_MULTIPLIER#g" /opt/l2j/server/game/config/rates.properties
-sed -i "s#CorpseDropAmountMultiplier = 1#CorpseDropAmountMultiplier = $ITEM_SPOIL_MULTIPLIER#g" /opt/l2j/server/game/config/rates.properties
-
-sed -i "s#DropAmountMultiplierByItemId = 57,1#DropAmountMultiplierByItemId = 57,$RATE_ADENA#g" /opt/l2j/server/game/config/rates.properties
 
 # ---------------------------------------------------------------------------
 # Vitaliy System
@@ -210,15 +165,6 @@ sed -i "s#Enabled = True#Enabled = $VITALITY_SYSTEM#g" /opt/l2j/server/game/conf
 # ---------------------------------------------------------------------------
 # Buffer Service
 # ---------------------------------------------------------------------------
-
-sed -i "s#Enable=True#Enable=$BUFFER_SERVICE#g" /opt/l2j/server/game/config/bufferservice.properties
-sed -i "s#HealCooldown=60#HealCooldown=$BUFFER_SERVICE_COOLDOWN#g" /opt/l2j/server/game/config/bufferservice.properties
-sed -i "s#MaxUniqueLists=5#MaxUniqueLists=$BUFFER_SERVICE_MAX_LISTS#g" /opt/l2j/server/game/config/bufferservice.properties
-sed -i "s#Debug=False#Debug=$BUFFER_DEBUG#g" /opt/l2j/server/game/config/bufferservice.properties
-sed -i "s#VoicedEnable=False#VoicedEnable=$BUFFER_SERVICE_VOICED#g" /opt/l2j/server/game/config/bufferservice.properties
-sed -i "s#VoicedCommand=bufferservice#VoicedCommand=$BUFFER_SERVICE_VOICED_COMMAND#g" /opt/l2j/server/game/config/bufferservice.properties
-sed -i "s#VoicedName=Voiced#VoicedName=$BUFFER_SERVICE_VOICED_NAME#g" /opt/l2j/server/game/config/bufferservice.properties
-sed -i "s#VoicedRequiredItem=0#VoicedRequiredItem=$BUFFER_SERVICE_VOICED_REQUIRED_ITEM#g" /opt/l2j/server/game/config/bufferservice.properties
 
 # ---------------------------------------------------------------------------
 # Discord Properties
