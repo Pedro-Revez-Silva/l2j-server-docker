@@ -11,17 +11,17 @@ LABEL maintainer="L2JServer" \
 
 COPY entrypoint.sh /entrypoint.sh
 
-ARG branch_gs=develop
-ARG branch_dp=develop
+ARG branch_gs=master
+ARG branch_dp=master
 
 RUN apk update \ 
     && apk --no-cache add maven mariadb-client unzip git \
     && mkdir -p /opt/l2j/server && mkdir -p /opt/l2j/target && cd /opt/l2j/target/ \
-    && git clone --branch master --single-branch https://git@bitbucket.org/l2jserver/l2j-server-cli.git cli \
-    && git clone --branch master --single-branch https://git@bitbucket.org/l2jserver/l2j-server-login.git login \
-    && git clone --branch $branch_gs --single-branch https://git@bitbucket.org/l2jserver/l2j-server-game.git game \
-    && git clone --branch $branch_dp --single-branch https://git@bitbucket.org/l2jserver/l2j-server-datapack.git datapack \
-    && cd /opt/l2j/target/cli && chmod 755 mvnw && ./mvnw install \
+    && git clone --branch master --single-branch https://github.com/Pedro-Revez-Silva/l2j-server-cli.git cli \
+    && git clone --branch master --single-branch https://github.com/Pedro-Revez-Silva/l2j-server-login.git login \
+    && git clone --branch $branch_gs --single-branch https://github.com/Pedro-Revez-Silva/l2j-server-game.git game \
+    && git clone --branch $branch_dp --single-branch https://github.com/Pedro-Revez-Silva/l2j-server-datapack.git datapack \
+    && cd /opt/l2j/target/cli && chmod 755 mvnw && ./mvnw install \ 
     && cd /opt/l2j/target/login && chmod 755 mvnw && ./mvnw install \
     && cd /opt/l2j/target/game && chmod 755 mvnw && ./mvnw install \
     && cd /opt/l2j/target/datapack && chmod 755 mvnw && ./mvnw install \
